@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 4deca87cb459d1642ac8f734856ca84e
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 164188
+  packageName: '#NVJOB Simple Boids (Flocks of Birds, Fish and Insects)'
+  packageVersion: 1.1.1
+  assetPath: Assets/#NVJOB Boids/Example Scenes/Standard Assets/Editor/ImageEffects/BloomAndFlaresEditor.cs
+  uploadId: 355922

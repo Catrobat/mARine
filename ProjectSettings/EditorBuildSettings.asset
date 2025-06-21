@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/Useful_for_derivatives/SampleScene.unity
+    guid: 4755b35b590504809a7525fd2109c2e2
+  - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: 7f0dc33bc140c1c449cf25b75ec5952c
+  - enabled: 0
+    path: Assets/Scenes/AR_Spawn.unity
+    guid: 0812d52c3728c2246a74833dc2c50c37
+  - enabled: 0
+    path: Assets/Scenes/FreeExplore.unity
+    guid: 59aced77654ae1842a90698dade0b763
+  - enabled: 0
+    path: Assets/Scenes/CustomCreate.unity
+    guid: 8eb5333f975a49a47ae9eb896c1c9e2a
+  - enabled: 0
+    path: Assets/Scenes/ModuleWise.unity
+    guid: bce86c1fad171da42ae83fdb80fb4b67
+  - enabled: 1
+    path: Assets/Scenes/StartScreenScene.unity
+    guid: b993e70402c219049ad283c99c933b4e
+  - enabled: 1
+    path: Assets/Scenes/CreateProjectScene.unity
+    guid: 2abadc2cb29b2b14796c26cfe58e1fcd
+  - enabled: 1
+    path: Assets/Scenes/TestScene2.unity
+    guid: e188e9d556541b54c8a69a158bc9523c
+  - enabled: 1
+    path: Assets/Scenes/PlacedActorListScene.unity
+    guid: a7387ea049f67924c9f54edaaaaf062a
+  - enabled: 1
+    path: Assets/Scenes/BehaviorScene.unity
+    guid: 874e489f07464e64ca8b28228f99af8f
+  - enabled: 1
+    path: Assets/Scenes/AddScriptsScene.unity
+    guid: e197e9afbd776cf4caefe5e925d89772
+  - enabled: 1
+    path: Assets/Scenes/ARPlacementScene.unity
+    guid: ca99e8a77ea4fd946901f777f83c50f6
+  m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 6ee72d15cf39dd748a13eac57397b9af,
+      type: 2}
+    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 0465d33c6aee55f44b0237db8b0e0259,
+      type: 2}
+    com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: c199e683398494f32b4cde18e73ab731,
+      type: 2}
+    com.unity.xr.magicleap.magic_leap_settings: {fileID: 11400000, guid: 0b53a025a635a4393ba0b49822242280,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 3fd4fc0127790db4bae83f7b77da8d45,
+      type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: b07c4ba7650be4c25b3d0c497e7e2bb8,
+      type: 2}
+  m_UseUCBPForAssetBundles: 0
