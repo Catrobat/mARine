@@ -9,6 +9,8 @@ public class ARPlacementController : MonoBehaviour
     public ARRaycastManager raycastManager;
     public Camera arCamera;
 
+    public ARPlaneManager planeManager;  // AR Plane Manager reference
+
     [Header("Environment Prefabs")]
     public ActorDatabase actorDatabase;
 
@@ -27,7 +29,9 @@ public class ARPlacementController : MonoBehaviour
 
     void Update()
     {
-        if (placed) return;
+
+        if (placed)
+            return;
 
 #if UNITY_EDITOR
         if (Input.GetMouseButtonDown(0))
@@ -41,6 +45,8 @@ public class ARPlacementController : MonoBehaviour
         }
 #endif
     }
+
+
 
     private void TryPlaceAt(Vector2 screenPosition)
     {
@@ -72,6 +78,16 @@ public class ARPlacementController : MonoBehaviour
 
         GameObject root = new GameObject(data.environmentName);
         root.transform.position = position;
+
+        if (planeManager != null)
+        {
+            planeManager.enabled = false; // Disable plane detection after placement
+            
+            foreach (var plane in planeManager.trackables)
+            {
+                plane.gameObject.SetActive(false); // Hide existing planes
+            }
+        }
 
         // Instantiate environment plane
         if (!string.IsNullOrEmpty(data.environmentPlanePrefabName))

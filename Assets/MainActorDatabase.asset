@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MainActorDatabase
   m_EditorClassIdentifier: 
   actorPrefabs:
-  - {fileID: 223555796068008748, guid: b8fa1dff8c7f40c4db28d2c36ffa0902, type: 3}
-  - {fileID: 3735939103118759355, guid: 061c2275e39d66e4899ccb4e590dc96b, type: 3}
+  - {fileID: 1798296970679199089, guid: 3217bb34dc764e0498c5758a90cad887, type: 3}
+  - {fileID: 5591435296527961367, guid: 5c9777955cc63ec47a74d4182730f609, type: 3}
   - {fileID: 778447852206104836, guid: 768ad6d1ab6e13a43b1193dce8e1eaa1, type: 3}
   - {fileID: 4968929508997020321, guid: bdc717fa4d055eb42b77926543fd878a, type: 3}

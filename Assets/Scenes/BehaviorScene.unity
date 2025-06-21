@@ -535,6 +535,7 @@ GameObject:
   m_Component:
   - component: {fileID: 342742887}
   - component: {fileID: 342742888}
+  - component: {fileID: 342742889}
   m_Layer: 0
   m_Name: SwipeBackHandler
   m_TagString: Untagged
@@ -564,12 +565,30 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342742885}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4230e6334fdf4444a54dfc74cf372a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   minSwipeDistance: 100
+--- !u!114 &342742889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342742885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d03be946eaadb8418e4b11d6fbeb03c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arSession: {fileID: 0}
+  previousSceneName: PlacedActorListScene
+  infoCanvas: {fileID: 0}
+  quizCanvas: {fileID: 0}
+  canvasToggleManager: {fileID: 0}
+  ttsManager: {fileID: 0}
 --- !u!1 &519011469
 GameObject:
   m_ObjectHideFlags: 0
