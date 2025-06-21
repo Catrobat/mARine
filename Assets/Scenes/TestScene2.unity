@@ -264,7 +264,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 156337262}
-  - component: {fileID: 156337261}
   m_Layer: 0
   m_Name: SaveManager
   m_TagString: Untagged
@@ -272,18 +271,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &156337261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156337260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 707ac6277e1cd95488c619f41b21fcb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &156337262
 Transform:
   m_ObjectHideFlags: 0
@@ -1134,7 +1121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 156337261}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SaveButtonHandler, Assembly-CSharp
         m_MethodName: SaveEnvironment
         m_Mode: 1
@@ -1621,7 +1608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allEnvironmentPrefabs:
-  - {fileID: 3735939103118759355, guid: 49b50341c826e1d4eadc4cf5f95a44a1, type: 3}
+  - {fileID: 223555796068008748, guid: b8fa1dff8c7f40c4db28d2c36ffa0902, type: 3}
   - {fileID: 3735939103118759355, guid: 061c2275e39d66e4899ccb4e590dc96b, type: 3}
   planeSizeInMeters: {x: 5, y: 5}
 --- !u!1 &1270743072

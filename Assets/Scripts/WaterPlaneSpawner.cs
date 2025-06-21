@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using System.Collections.Generic;
-using UnityEngine.UI;
 
 public class WaterPlaneSpawner : MonoBehaviour
 {
@@ -16,9 +15,6 @@ public class WaterPlaneSpawner : MonoBehaviour
     private ARAnchorManager _arAnchorManager;
 
     private WaterPlaneMover _moverInstance;
-    public Button upButton;
-    public Button downButton;
-    // public GameObject waterCamPlane;
 
     private InputAction _touchAction;
     private bool _planePlaced;
@@ -80,24 +76,6 @@ public class WaterPlaneSpawner : MonoBehaviour
                     GameObject spawnedPlane = Instantiate(waterPlanePrefab, hitPose.position, hitPose.rotation, fixedWorldContainer);
                     _moverInstance = spawnedPlane.GetComponent<WaterPlaneMover>();
                     
-                    // Assign button listeners
-                    upButton.onClick.AddListener(_moverInstance.MoveWaterDown);
-                    downButton.onClick.AddListener(_moverInstance.MoveWaterUp);
-
-                    // No need to set water surface on OceanDepthController anymore
-                    /*
-                    OceanDepthController depthController = FindAnyObjectByType<OceanDepthController>();
-                    if (depthController != null)
-                    {
-                        depthController.SetWaterSurface(spawnedPlane.transform);
-                    }
-                    else
-                    {
-                        Debug.LogWarning("OceanDepthAndWaterFXController not found.");
-                    }
-                    */
-
-                    // waterCamPlane.SetActive(true);
                     _planePlaced = true;
 
                     // Disable plane detection and hide existing planes

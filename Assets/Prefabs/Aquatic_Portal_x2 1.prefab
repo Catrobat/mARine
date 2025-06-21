@@ -5653,6 +5653,9 @@ MonoBehaviour:
   resultTitleText: {fileID: 3913643397719114372}
   resultScoreText: {fileID: 4698897145669981200}
   starfishRewardImage: {fileID: 8201337132063842773}
+  tryAgain: {fileID: 0}
+  tryAgain1: {fileID: 0}
+  statusPanel: {fileID: 0}
 --- !u!1 &1118745577857073580
 GameObject:
   m_ObjectHideFlags: 0
@@ -16639,6 +16642,9 @@ MonoBehaviour:
   resultTitleText: {fileID: 5582763444930328030}
   resultScoreText: {fileID: 3342412673509963888}
   starfishRewardImage: {fileID: 7378859601961559051}
+  tryAgain: {fileID: 0}
+  tryAgain1: {fileID: 0}
+  statusPanel: {fileID: 0}
 --- !u!1 &4284577186650769130
 GameObject:
   m_ObjectHideFlags: 0
@@ -19225,6 +19231,9 @@ MonoBehaviour:
   resultTitleText: {fileID: 5873188319729188039}
   resultScoreText: {fileID: 3568628040989414505}
   starfishRewardImage: {fileID: 6462050872741916909}
+  tryAgain: {fileID: 0}
+  tryAgain1: {fileID: 0}
+  statusPanel: {fileID: 0}
 --- !u!1 &4988256414548307584
 GameObject:
   m_ObjectHideFlags: 0
@@ -48184,7 +48193,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90.543
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9160514539801392176, guid: 43922be0e9f63f14bb693707989db457, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5070096073402389360, guid: 43922be0e9f63f14bb693707989db457, type: 3}
     - {fileID: 3037182651274756437, guid: 43922be0e9f63f14bb693707989db457, type: 3}
