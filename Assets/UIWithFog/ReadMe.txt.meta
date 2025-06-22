@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 19e4ab5fa1e40d344acdae35fb450e4b
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 195773
+  packageName: UI Shader With Fog
+  packageVersion: 1.0
+  assetPath: Assets/UIWithFog/ReadMe.txt
+  uploadId: 438878

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e230b13e189388e48832f9c367bfeb94
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 195773
+  packageName: UI Shader With Fog
+  packageVersion: 1.0
+  assetPath: Assets/UIWithFog/Example/Materials/Ground.mat
+  uploadId: 438878

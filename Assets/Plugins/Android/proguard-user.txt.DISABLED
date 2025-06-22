@@ -1,0 +1,51 @@
+# --- Keep Unity classes ---
+-keep class com.unity3d.player.** { *; }
+
+# --- Keep MonoBehaviour scripts and any reflection-based calls ---
+-keep class your.package.name.** { *; }  # Replace with your actual package
+
+# --- If using Newtonsoft.Json / JSON.NET ---
+-keep class org.json.** { *; }
+-keep class com.google.gson.** { *; }
+-keep class * implements com.google.gson.TypeAdapter
+-keepattributes Signature
+-keepattributes *Annotation*
+-keep class * {
+    @com.google.gson.annotations.SerializedName <fields>;
+}
+-keep class com.fasterxml.jackson.** { *; }
+
+# --- If using Firebase (Analytics, Auth, etc.) ---
+-keep class com.google.firebase.** { *; }
+-keep class com.google.android.gms.** { *; }
+
+# --- If using Unity Ads or mediation ---
+-keep class com.unity3d.ads.** { *; }
+
+# --- If using reflection in general ---
+-keepclassmembers class * {
+    *** *(...);
+}
+-keepnames class * {
+    *;
+}
+
+# --- Prevent stripping of native plugins ---
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+
+# --- Keep XR-related AR classes (ARCore/ARKit) ---
+-keep class com.google.ar.core.** { *; }
+-keep class com.unity.xr.** { *; }
+
+# --- Keep classes used in animation events ---
+-keepclassmembers class * {
+   void OnAnimation*(*);
+}
+
+# --- Keep all serialized fields (for Unity deserialization) ---
+-keepclassmembers class * {
+    public <init>(...);
+    public fields;
+}

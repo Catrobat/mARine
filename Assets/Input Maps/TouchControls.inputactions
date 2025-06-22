@@ -1,0 +1,67 @@
+{
+    "name": "TouchControls",
+    "maps": [
+        {
+            "name": "TouchControls",
+            "id": "2c2a1462-83ef-4e3c-90ea-57ecc0ff1327",
+            "actions": [
+                {
+                    "name": "Touch",
+                    "type": "Value",
+                    "id": "de84ab43-7c08-49d1-9f1b-d0cc9a5912b1",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6a4c5202-b996-499b-9c35-092d056c5e8b",
+                    "path": "<Touchscreen>/primaryTouch/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Mouse Click",
+                    "id": "07859246-4214-4718-aa0a-43380b9df331",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "a1fa8753-8088-447b-a980-80a5ff94c092",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "1279a329-152a-4086-bf16-d32a42ce6c2f",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
