@@ -13,6 +13,7 @@
     "com.unity.render-pipelines.universal": "17.0.3",
     "com.unity.splines": "2.7.2",
     "com.unity.timeline": "1.8.8",
+    "com.unity.toolchain.win-x86_64-linux-x86_64": "2.0.10",
     "com.unity.xr.arcore": "6.1.0",
     "com.unity.xr.arfoundation": "6.1.1",
     "com.unity.xr.arkit": "6.1.0",
