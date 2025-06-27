@@ -34,6 +34,8 @@ public class GridTapPlacer : MonoBehaviour
 
                     cell.PlaceActor(selectedActor);
                     Debug.Log($"Placed actor {selectedActor.name} at {cell.gameObject.name}");
+
+                    actorSelector.ClearSelection();
                 }
             }
         }
@@ -62,6 +64,8 @@ public class GridTapPlacer : MonoBehaviour
 
                     cell.PlaceActor(selectedActor);
                     Debug.Log($"Placed actor {selectedActor.name} at {cell.gameObject.name}");
+
+                    actorSelector.ClearSelection();
                 }
             }
         }

@@ -6,8 +6,7 @@ public class GridManager : MonoBehaviour
     public int gridSizeX = 5;
     public int gridSizeY = 5;
     public float cellHeightOffset = 0.01f;
-    public float spacing = 0.02f; // Add this
-
+    public float spacing = 0.02f;
     private GameObject[,] gridCells;
 
     public void GenerateGrid(GameObject plane)
@@ -21,7 +20,6 @@ public class GridManager : MonoBehaviour
         float cellHeight = (planeSize.z / gridSizeY) - spacing;
 
         Vector3 bottomLeft = planeOrigin - new Vector3(planeSize.x / 2, 0, planeSize.z / 2);
-
         gridCells = new GameObject[gridSizeX, gridSizeY];
 
         for (int x = 0; x < gridSizeX; x++)
@@ -38,6 +36,27 @@ public class GridManager : MonoBehaviour
                 cell.name = $"GridCell_{x}_{y}";
                 cell.transform.SetParent(this.transform);
                 gridCells[x, y] = cell;
+
+                // Collision check
+                Collider[] hits = Physics.OverlapBox(cellCenter, new Vector3(cellWidth / 2, 0.05f, cellHeight / 2));
+                bool hasObstacle = false;
+
+                foreach (var hit in hits)
+                {
+                    if (hit.CompareTag("Obstacle"))
+                    {
+                        hasObstacle = true;
+                        break;
+                    }
+                }
+
+                if (hasObstacle)
+                {
+                    var script = cell.GetComponent<GridCellScript>();
+                    script?.MarkAsUnusable();
+                    Debug.DrawLine(cellCenter + Vector3.up * 0.1f, cellCenter + Vector3.up * 0.5f, Color.red, 10f);
+                }
+
             }
         }
 

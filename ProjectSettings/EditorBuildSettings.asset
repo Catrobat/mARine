@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScreenScene.unity
     guid: b993e70402c219049ad283c99c933b4e
   - enabled: 1
+    path: Assets/Scenes/QRScannerScene.unity
+    guid: 856c4906e67765a4ba4c8a27113eef6d
+  - enabled: 1
     path: Assets/Scenes/CreateProjectScene.unity
     guid: 2abadc2cb29b2b14796c26cfe58e1fcd
   - enabled: 1

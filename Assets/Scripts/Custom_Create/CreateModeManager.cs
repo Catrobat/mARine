@@ -18,6 +18,16 @@ public class CreateModeManager : MonoBehaviour
         if (plane != null)
         {
             gridManager.GenerateGrid(plane);
+
+            // Setup live environment cache
+            EnvironmentData data = new EnvironmentData
+            {
+                environmentName = PlayerPrefs.GetString("NewModuleName", "UnnamedModule"),
+                environmentPlanePrefabName = PlayerPrefs.GetString("SelectedEnvironmentPrefabName", "UnknownPrefab"),
+                placedActors = new System.Collections.Generic.List<PlacedActorData>()
+            };
+
+            EnvironmentDataCache.SetData(data);
         }
         else
         {
