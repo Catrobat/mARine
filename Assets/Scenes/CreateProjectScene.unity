@@ -1237,6 +1237,9 @@ MonoBehaviour:
   - name: Rocky Env
     prefab: {fileID: 5591435296527961367, guid: 5c9777955cc63ec47a74d4182730f609,
       type: 3}
+  - name: Coral Env
+    prefab: {fileID: 2143296196879686441, guid: 5ce3445f8b8cff949804b8c11ab5d305,
+      type: 3}
 --- !u!1 &804103990
 GameObject:
   m_ObjectHideFlags: 0

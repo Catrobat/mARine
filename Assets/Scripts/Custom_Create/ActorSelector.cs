@@ -36,4 +36,13 @@ public class ActorSelector : MonoBehaviour
     {
         return selectedActor;
     }
+
+    /// <summary>
+    /// Clear the current actor selection.
+    /// </summary>
+    public void ClearSelection()
+    {
+        selectedActor = null;
+        Debug.Log("Actor selection cleared.");
+    }
 }

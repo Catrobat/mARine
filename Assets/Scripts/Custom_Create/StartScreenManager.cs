@@ -8,17 +8,25 @@ public class StartScreenManager : MonoBehaviour
     public Transform moduleGridContainer;       // Assign in Inspector (Scroll View Content)
     public GameObject moduleButtonPrefab;       // Assign prefab with icon + name + button
     public Button createModuleButton;           // Assign "+" button in Inspector
+    public Button scanQRButton;                 // Assign "Scan QR to Import" button in Inspector
 
     void Start()
     {
         Debug.Log("Saved Modules Folder: " + Application.persistentDataPath);
-        // Set up the Create (+) button
+
+        // Create new module
         createModuleButton.onClick.AddListener(() =>
         {
             SceneManager.LoadScene("CreateProjectScene");
         });
 
-        // Load existing modules from persistent data path
+        // Scan QR to Import
+        scanQRButton.onClick.AddListener(() =>
+        {
+            SceneManager.LoadScene("QRScannerScene"); // Make sure this scene is added to Build Settings
+        });
+
+        // Load saved modules
         string[] modulePaths = ModuleSaveManager.GetAllModulePaths();
 
         foreach (string path in modulePaths)
@@ -41,6 +49,5 @@ public class StartScreenManager : MonoBehaviour
                 SceneManager.LoadScene("PlacedActorListScene");
             });
         }
-
     }
 }

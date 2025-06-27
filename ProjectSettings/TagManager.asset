@@ -6,11 +6,13 @@ TagManager:
   tags:
   - Underwater
   - Actor
+  - Joystick
+  - Obstacle
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Obstacles
   - Water
   - UI
   - 
