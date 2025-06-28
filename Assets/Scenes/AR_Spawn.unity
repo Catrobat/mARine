@@ -1881,6 +1881,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GreetingCTA
       objectReference: {fileID: 0}
+    - target: {fileID: 1579366325745436317, guid: 063cc896506b947c7b2c2ae3beb5868f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2819776943908590173, guid: 063cc896506b947c7b2c2ae3beb5868f,
         type: 3}
       propertyPath: m_Type
@@ -2773,6 +2778,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Prompt Tap to Place
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765487124839431813, guid: 680c293bce53344a9b3f278826340ee0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7389,6 +7399,8 @@ MonoBehaviour:
   previousSceneName: StartScene
   infoCanvas: {fileID: 0}
   quizCanvas: {fileID: 0}
+  canvasToggleManager: {fileID: 0}
+  ttsManager: {fileID: 0}
 --- !u!4 &1943077774
 Transform:
   m_ObjectHideFlags: 0

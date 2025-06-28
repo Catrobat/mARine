@@ -140,7 +140,8 @@ public class GoalManager : MonoBehaviour
     [SerializeField]
     GameObject m_SketchFabButton;
     
-    [Tooltip("The AI Button to enable once the greeting prompt is dismissed.")] [SerializeField]
+    [Tooltip("The AI Button to enable once the greeting prompt is dismissed.")] 
+    [SerializeField]
     GameObject ai_button;
     
     /// <summary>

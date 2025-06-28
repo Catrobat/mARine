@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "com.cakeslice.outline-effect": "https://github.com/cakeslice/Outline-Effect.git",
+    "com.google.xr.cardboard": "https://github.com/googlevr/cardboard-xr-plugin.git",
     "com.meta.xr.sdk.voice": "77.0.0",
     "com.ptc.vuforia.engine": "file:com.ptc.vuforia.engine-11.2.4.tgz",
     "com.unity.2d.sprite": "1.0.0",

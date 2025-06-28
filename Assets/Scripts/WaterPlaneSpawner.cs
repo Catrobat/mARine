@@ -9,6 +9,8 @@ public class WaterPlaneSpawner : MonoBehaviour
     [SerializeField] private GameObject waterPlanePrefab;
     [SerializeField] private InputActionAsset inputActions;
     [SerializeField] private Transform fixedWorldContainer;
+    [SerializeField] private FreeExpGoalManager goalManager;    
+    [SerializeField] private CrossPlatformTTS globalTTS;
 
     private ARRaycastManager _arRaycastManager;
     private ARPlaneManager _arPlaneManager;
@@ -18,6 +20,7 @@ public class WaterPlaneSpawner : MonoBehaviour
 
     private InputAction _touchAction;
     private bool _planePlaced;
+    private bool _scanGoalTriggered = false;
 
     private void Awake()
     {
@@ -49,8 +52,20 @@ public class WaterPlaneSpawner : MonoBehaviour
 
     void Update()
     {
-        if (_planePlaced || _arAnchorManager == null) return;
+        if (_planePlaced || goalManager == null || goalManager.GetCurrentGoalType() == FreeExpGoalManager.FreeExplorerGoals.TutorialComplete)
+            return;
 
+        // Handle Scan and auto-completion (2s over, plane visible now)
+        if (!_scanGoalTriggered && goalManager.GetCurrentGoalType() == FreeExpGoalManager.FreeExplorerGoals.Scan)
+        {
+            if (_arPlaneManager.trackables.count > 0)
+            {
+                _scanGoalTriggered = true;
+                goalManager.CompleteCurrentGoal();
+            }
+        }
+
+        // Tap-to-place
         if (_touchAction.WasPerformedThisFrame())
         {
             Vector2 touchPosition = _touchAction.ReadValue<Vector2>();
@@ -75,16 +90,28 @@ public class WaterPlaneSpawner : MonoBehaviour
                     // Instantiate water plane as child of anchor
                     GameObject spawnedPlane = Instantiate(waterPlanePrefab, hitPose.position, hitPose.rotation, fixedWorldContainer);
                     _moverInstance = spawnedPlane.GetComponent<WaterPlaneMover>();
+
+                    // Dynamically find the MarineBuddy in the instantiated prefab
+                    MarineBuddy buddy = spawnedPlane.GetComponentInChildren<MarineBuddy>(true);
+                    if (buddy != null)
+                    {
+                        goalManager.SetMarineBuddy(buddy);
+                        buddy.SetTTSManager(globalTTS);
+                    }
                     
                     _planePlaced = true;
 
                     // Disable plane detection and hide existing planes
                     _arPlaneManager.enabled = false;
                     foreach (var plane in _arPlaneManager.trackables)
-                    {
                         plane.gameObject.SetActive(false);
-                    }
                 }
+            }
+
+            // Trigger Spawn step to complete
+            if (goalManager.GetCurrentGoalType() == FreeExpGoalManager.FreeExplorerGoals.Spawn)
+            {
+                goalManager.CompleteCurrentGoal();
             }
         }
     }
