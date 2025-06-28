@@ -2,17 +2,20 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.Splines;
 
 public class FreeExpGoalManager : MonoBehaviour
 {
     [Header("Marie Buddy reference")]
-    private MarineBuddy marineBuddy;
+    [SerializeField] private MarineBuddy marineBuddy;
 
     [SerializeField] private CrossPlatformTTS ttsManager;
+    [SerializeField] private bool autoStart;
 
     public void SetMarineBuddy(MarineBuddy buddy)
     {
-        marineBuddy = buddy;
+        if (marineBuddy == null)
+            marineBuddy = buddy;
     }
 
     public enum FreeExplorerGoals
@@ -29,7 +32,7 @@ public class FreeExpGoalManager : MonoBehaviour
         TutorialComplete
     }
 
-   [System.Serializable]
+    [System.Serializable]
     public class FreeExpStep
     {
         public FreeExplorerGoals goalType;
@@ -38,137 +41,176 @@ public class FreeExpGoalManager : MonoBehaviour
         public Color highlightColor = Color.cyan;
         public UnityEvent onGoalStart;
         public UnityEvent onGoalComplete;
+        public List<SplineContainer> marineBuddySplines;
+        public float splineDuration = 5f;
     }
 
-   public List<FreeExpStep> tutorialSteps;
-   private Queue<FreeExpStep> goalQueue;
-   private FreeExpStep currentStep;
+    public List<FreeExpStep> tutorialSteps;
+    private Queue<FreeExpStep> goalQueue;
+    private FreeExpStep currentStep;
 
-   private bool tutorialRunning = false;  // Flag -> Checker (tutorial)
-   private Coroutine delayedCompletionRoutine;
+    private bool tutorialRunning = false;  // Flag -> Checker (tutorial)
+    private Coroutine delayedCompletionRoutine;
 
-   IEnumerator Start()
-   {
-       yield return  StartCoroutine(WaitForTTSManagerReady());
+    IEnumerator Start()
+    {
+        yield return  StartCoroutine(WaitForTTSManagerReady());
 
-       StartFreeExploreTutorial();
-   }
+        if (autoStart)
+            StartFreeExploreTutorial();
+    }
 
-   public void StartFreeExploreTutorial()
-   {
-       if (tutorialSteps.Count == 0)
-       {
-           Debug.LogWarning("FreeExpGoalManager: Missing MarineBuddy or steps.");
-           return;
-       }
+    public void StartFreeExploreTutorial()
+    {
+        if (tutorialSteps.Count == 0)
+        {
+            Debug.LogWarning("FreeExpGoalManager: Missing MarineBuddy or steps.");
+            return;
+        }
 
-       goalQueue = new Queue<FreeExpStep>(tutorialSteps);
-       tutorialRunning = true;
-       ProceedToNextStep();
-   }
+        // marineBuddy.SetTTSManager(ttsManager);
+        goalQueue = new Queue<FreeExpStep>(tutorialSteps);
+        tutorialRunning = true;
+        ProceedToNextStep();
+    }
 
-   public void ProceedToNextStep() 
-   {
-       if (goalQueue.Count == 0)
-       {
-           tutorialRunning = false;
-           Debug.Log("Tutorial complete.");
-           return;
-       }
+    public void ProceedToNextStep() 
+    {
+        if (goalQueue.Count == 0)
+        {
+            tutorialRunning = false;
+            Debug.Log("Tutorial complete.");
+            return;
+        }
 
-       currentStep = goalQueue.Dequeue();
-       currentStep.onGoalStart?.Invoke();
+        currentStep = goalQueue.Dequeue();
+        currentStep.onGoalStart?.Invoke();
 
-       if (ShouldUseBuddy(currentStep.goalType) && marineBuddy != null)
-       {
-           marineBuddy.PlayTutorialStep(currentStep.audioInstructionText, () => {
-                   if (currentStep.targetToHighlight)
-                   marineBuddy.HighlightObject(currentStep.targetToHighlight, currentStep.highlightColor);
-                   });
-       }
-       else if (!string.IsNullOrWhiteSpace(currentStep.audioInstructionText))
-       {
-           Debug.Log("[FreeExpGoalManager] Using fallback TTS for: " + currentStep.goalType);
-           StartCoroutine(WaitAndSpeakTTS(currentStep.audioInstructionText));
-       }
-       else
-       {
-           Debug.Log("[FreeExpGoalManager] Skipping TTS for: " + currentStep.goalType);
-       }
+        if (ShouldUseBuddy(currentStep.goalType) && marineBuddy != null)
+        {
+            if (currentStep.marineBuddySplines != null && currentStep.marineBuddySplines.Count > 0)
+            {
+                // Move -> Speak -> Highligh
+                /* marineBuddy.FollowSpline(currentStep.marineBuddySplines, () => {
+                        marineBuddy.PlayTutorialStep(currentStep.audioInstructionText, () => {
+                                if (currentStep.targetToHighlight)
+                                marineBuddy.HighlightObject(currentStep.targetToHighlight, currentStep.highlightColor);
+                                });
+                        },
+                        currentStep.splineDuration
+                        ); */
 
-       // For Scan setp, delay auto-advance for 2s and check for planes
-       if (currentStep.goalType == FreeExplorerGoals.Scan && delayedCompletionRoutine == null)
-       {
-           delayedCompletionRoutine = StartCoroutine(WaitAndMaybeCompleteScanGoal());
-
-       }
-   }
-
-   public void CompleteCurrentGoal()
-   {
-       if (!tutorialRunning) return;
-
-       currentStep.onGoalComplete?.Invoke();
-       if (delayedCompletionRoutine != null) StopCoroutine(delayedCompletionRoutine);
-       delayedCompletionRoutine = null;
-       ProceedToNextStep();
-   }
-
-   // Defaults to FreeExplorerGoals.TutorialComplete, if currentStep is null or goalType is unavailable
-   public FreeExplorerGoals GetCurrentGoalType()
-       => currentStep?.goalType ?? FreeExplorerGoals.TutorialComplete;
-
-   private IEnumerator WaitAndMaybeCompleteScanGoal()
-   {
-       yield return new WaitForSeconds(2f);
-       // WaterPlaneSpawner will complete it externally only if plane is found
-   }
-
-   /// <summary>
-   /// Determines whether this step should use MarineBuddy features.
-   /// Scan and Spawn are setup-only and do not require MarineBuddy.
-   /// </summary>
-   private bool ShouldUseBuddy(FreeExplorerGoals goal)
-   {
-       return (goal != FreeExplorerGoals.Scan && goal != FreeExplorerGoals.Spawn);
-   }
+                marineBuddy.PerformTutorialStep(
+                        currentStep.audioInstructionText,
+                        currentStep.targetToHighlight,
+                        currentStep.highlightColor,
+                        currentStep.marineBuddySplines,
+                        currentStep.splineDuration,
+                        () => CompleteCurrentGoal()
+                        );
+            }
+            else
+            {
+                // Speak -> Highlight
+                /* marineBuddy.PlayTutorialStep(currentStep.audioInstructionText, () => {
+                        if (currentStep.targetToHighlight)
+                        marineBuddy.HighlightObject(currentStep.targetToHighlight, currentStep.highlightColor);
+                        }); */
 
 
-   private IEnumerator WaitForTTSManagerReady()
-   {
-       float timeout = 5f;
-       float elapsed = 0f;
+                marineBuddy.PerformTutorialStep(
+                        currentStep.audioInstructionText,
+                        currentStep.targetToHighlight,
+                        currentStep.highlightColor,
+                        null,
+                        0f,
+                        () => CompleteCurrentGoal()
+                        );
+            }
+        }
+        else if (!string.IsNullOrWhiteSpace(currentStep.audioInstructionText))
+        {
+            Debug.Log("[FreeExpGoalManager] Using fallback TTS for: " + currentStep.goalType);
+            StartCoroutine(WaitAndSpeakTTS(currentStep.audioInstructionText));
+        }
+        else
+        {
+            Debug.Log("[FreeExpGoalManager] Skipping TTS for: " + currentStep.goalType);
+        }
 
-       while (ttsManager != null && !ttsManager.IsReady && elapsed < timeout)
-       {
-           elapsed += Time.deltaTime;
-           yield return null;
-       }
+        // For Scan setp, delay auto-advance for 2s and check for planes
+        if (currentStep.goalType == FreeExplorerGoals.Scan && delayedCompletionRoutine == null)
+        {
+            delayedCompletionRoutine = StartCoroutine(WaitAndMaybeCompleteScanGoal());
 
-       if (!ttsManager.IsReady)
-       {
-           Debug.LogWarning("[FreeExpGoalManager] TTSManager not ready after timeout.");
-       }
-   }
+        }
+    }
 
-   private IEnumerator WaitAndSpeakTTS(string message)
-   {
-       float timeout = 5f;
-       float elapsed = 0f;
+    public void CompleteCurrentGoal()
+    {
+        if (!tutorialRunning) return;
 
-       while (ttsManager != null && !ttsManager.IsReady && elapsed < timeout)
-       {
-           elapsed += Time.deltaTime;
-           yield return null;
-       }
+        currentStep.onGoalComplete?.Invoke();
+        if (delayedCompletionRoutine != null) StopCoroutine(delayedCompletionRoutine);
+        delayedCompletionRoutine = null;
+        ProceedToNextStep();
+    }
 
-       if (ttsManager != null && ttsManager.IsReady)
-       {
-           ttsManager.Speak(message);
-       }
-       else
-       {
-           Debug.LogWarning("[FreeExpGoalManager] TTS was not ready after waiting.");
-       }
-   }
+    // Defaults to FreeExplorerGoals.TutorialComplete, if currentStep is null or goalType is unavailable
+    public FreeExplorerGoals GetCurrentGoalType()
+        => currentStep?.goalType ?? FreeExplorerGoals.TutorialComplete;
+
+    private IEnumerator WaitAndMaybeCompleteScanGoal()
+    {
+        yield return new WaitForSeconds(2f);
+        // WaterPlaneSpawner will complete it externally only if plane is found
+    }
+
+    /// <summary>
+    /// Determines whether this step should use MarineBuddy features.
+    /// Scan and Spawn are setup-only and do not require MarineBuddy.
+    /// </summary>
+    private bool ShouldUseBuddy(FreeExplorerGoals goal)
+    {
+        return (goal != FreeExplorerGoals.Scan && goal != FreeExplorerGoals.Spawn);
+    }
+
+
+    private IEnumerator WaitForTTSManagerReady()
+    {
+        float timeout = 5f;
+        float elapsed = 0f;
+
+        while (ttsManager != null && !ttsManager.IsReady && elapsed < timeout)
+        {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        if (!ttsManager.IsReady)
+        {
+            Debug.LogWarning("[FreeExpGoalManager] TTSManager not ready after timeout.");
+        }
+    }
+
+    private IEnumerator WaitAndSpeakTTS(string message)
+    {
+        float timeout = 5f;
+        float elapsed = 0f;
+
+        while (ttsManager != null && !ttsManager.IsReady && elapsed < timeout)
+        {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        if (ttsManager != null && ttsManager.IsReady)
+        {
+            ttsManager.Speak(message);
+        }
+        else
+        {
+            Debug.LogWarning("[FreeExpGoalManager] TTS was not ready after waiting.");
+        }
+    }
 }

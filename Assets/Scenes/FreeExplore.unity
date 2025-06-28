@@ -3860,7 +3860,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973a22a5316c90143a7d80a2228c37f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marineBuddy: {fileID: 0}
   ttsManager: {fileID: 1581537570}
+  autoStart: 1
   tutorialSteps:
   - goalType: 0
     audioInstructionText: Scan the ground around you by gently moving your device.
@@ -3896,6 +3898,8 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    marineBuddySplines: []
+    splineDuration: 5
   - goalType: 1
     audioInstructionText: "\u201CGreat! Now tap on the surface you\u2019ve scanned
       to place your water environment. This is where your ocean adventure begins!\u201D"
@@ -3931,6 +3935,8 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    marineBuddySplines: []
+    splineDuration: 5
 --- !u!4 &1198802432
 Transform:
   m_ObjectHideFlags: 0
