@@ -4854,6 +4854,257 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.001284725, y: 0.0005384218, z: 0.0051759062}
     m_Extent: {x: 0.017392594, y: 0.01972435, z: 0.006125262}
   m_DirtyAABB: 0
+--- !u!1 &3243765536884781113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8262370445902094883}
+  - component: {fileID: 791184122631408282}
+  m_Layer: 0
+  m_Name: Spline (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8262370445902094883
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3243765536884781113}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.16303548, y: 1.3998342, z: 0.07768053}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5148825405377527989}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &791184122631408282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3243765536884781113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Splines:
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: -0.000035479665
+        y: -0.56683415
+        z: 0.34331948
+      TangentIn:
+        x: -0
+        y: -0
+        z: -0.15249702
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0.15249702
+      Rotation:
+        value:
+          x: -0.22498612
+          y: -0.09681242
+          z: 0.73485816
+          w: 0.63244927
+    - Position:
+        x: -0.6910355
+        y: -0.3498342
+        z: 1.6853194
+      TangentIn:
+        x: 0
+        y: 0
+        z: -0.1332741
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0.08360973
+      Rotation:
+        value:
+          x: -0.31364453
+          y: 0.26024768
+          z: 0.38719362
+          w: 0.8270305
+    - Position:
+        x: -0.21003547
+        y: -0.10383415
+        z: 1.9763193
+      TangentIn:
+        x: -0
+        y: -0
+        z: -0.18470965
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0.18821445
+      Rotation:
+        value:
+          x: 0.13614547
+          y: 0.27192566
+          z: 0.71452814
+          w: 0.6300558
+    - Position:
+        x: -0.09703548
+        y: -0.11183417
+        z: 2.6033194
+      TangentIn:
+        x: -0
+        y: -0
+        z: -0.19299777
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0.2638454
+      Rotation:
+        value:
+          x: 0.0193081
+          y: -0.24087363
+          z: 0.00082315085
+          w: 0.97036403
+    - Position:
+        x: -1.1840355
+        y: -0.16783416
+        z: 3.0863194
+      TangentIn:
+        x: 0
+        y: 0
+        z: -0.16178766
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0.0050991396
+      Rotation:
+        value:
+          x: 0.8256419
+          y: -0.0059075495
+          z: -0.56413096
+          w: -0.006069886
+    - Position:
+        x: -1.1840355
+        y: -0.16783416
+        z: 3.0863194
+      TangentIn:
+        x: -0
+        y: -0
+        z: -0
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0
+      Rotation:
+        value:
+          x: -0.70710665
+          y: 0
+          z: -0
+          w: 0.7071069
+    m_MetaData:
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 3
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 3
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: -1.1840355
+        y: -0.16783416
+        z: 3.0863194
+      TangentIn:
+        x: 0
+        y: 0
+        z: -0.06404312
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0.15658526
+      Rotation:
+        value:
+          x: -0.16530268
+          y: 0.7767077
+          z: 0.024820548
+          w: -0.60727596
+    - Position:
+        x: -1.1488355
+        y: -0.17143416
+        z: 2.4783194
+      TangentIn:
+        x: 0
+        y: 0
+        z: -0.07371229
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0.061336022
+      Rotation:
+        value:
+          x: -0.13929434
+          y: 0.9585338
+          z: -0.037831523
+          w: 0.24572085
+    m_MetaData:
+    - Mode: 3
+      Tension: 0.5
+    - Mode: 3
+      Tension: 0.5
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Knots:
+    m_KnotsLink:
+    - Knots:
+      - Spline: 0
+        Knot: 4
+      - Spline: 0
+        Knot: 5
+      - Spline: 1
+        Knot: 0
 --- !u!1 &3374088664457738775
 GameObject:
   m_ObjectHideFlags: 0
@@ -8313,7 +8564,7 @@ MonoBehaviour:
       step through to begin your underwater journey. I\u2019m Marine Buddy, and I\u2019ll
       be right by your side as we discover the wonders of the deep sea together.\""
     targetToHighlight: {fileID: 5059593819156394131}
-    highlightColor: {r: 0, g: 1, b: 1, a: 0}
+    highlightColor: {r: 0, g: 1, b: 1, a: 0.67058825}
     onGoalStart:
       m_PersistentCalls:
         m_Calls: []
@@ -8323,6 +8574,60 @@ MonoBehaviour:
     marineBuddySplines:
     - {fileID: 2902854725887200709}
     splineDuration: 5
+  - goalType: 3
+    audioInstructionText: Great! Let me show you a few things that'll help during
+      your free exploration
+    targetToHighlight: {fileID: 0}
+    highlightColor: {r: 0, g: 1, b: 1, a: 0.67058825}
+    onGoalStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onGoalComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    marineBuddySplines:
+    - {fileID: 791184122631408282}
+    splineDuration: 5
+  - goalType: 4
+    audioInstructionText: This is the audio toggle button. You can use it to mute
+      or unmute the voice instructions anytime during your exploration.
+    targetToHighlight: {fileID: 0}
+    highlightColor: {r: 0, g: 1, b: 1, a: 1}
+    onGoalStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onGoalComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    marineBuddySplines: []
+    splineDuration: 0
+  - goalType: 5
+    audioInstructionText: This button opens up MarineBuddy's AI assistant. You can
+      tap it to ask questions or learn more about marine life while you explore.
+    targetToHighlight: {fileID: 0}
+    highlightColor: {r: 0, g: 1, b: 1, a: 0.67058825}
+    onGoalStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onGoalComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    marineBuddySplines: []
+    splineDuration: 0
+  - goalType: 6
+    audioInstructionText: "This slider lets you change how deep you want to go. Slide
+      it to explore different ocean zones\u2014from shallow reefs to the darkest
+      depths."
+    targetToHighlight: {fileID: 0}
+    highlightColor: {r: 0, g: 1, b: 1, a: 1}
+    onGoalStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onGoalComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    marineBuddySplines: []
+    splineDuration: 0
 --- !u!1 &5141982907030650061
 GameObject:
   m_ObjectHideFlags: 0
@@ -19597,17 +19902,17 @@ PrefabInstance:
     - target: {fileID: 7198786907105307297, guid: afaf83437297cf3498ad5a0a34058603,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.17116556
+      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 7198786907105307297, guid: afaf83437297cf3498ad5a0a34058603,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.509
+      value: 0.648
       objectReference: {fileID: 0}
     - target: {fileID: 7198786907105307297, guid: afaf83437297cf3498ad5a0a34058603,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.773
+      value: 2.13
       objectReference: {fileID: 0}
     - target: {fileID: 7198786907105307297, guid: afaf83437297cf3498ad5a0a34058603,
         type: 3}
@@ -19666,6 +19971,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5454044335709489368}
+    - targetCorrespondingSourceObject: {fileID: 7542660905558798363, guid: afaf83437297cf3498ad5a0a34058603,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6373165951232303532}
   m_SourcePrefab: {fileID: 100100000, guid: afaf83437297cf3498ad5a0a34058603, type: 3}
 --- !u!1 &5059593819156394131 stripped
 GameObject:
@@ -19701,6 +20010,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1.5
   splineContainer: {fileID: 0}
+--- !u!23 &6373165951232303532
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5059593819156394131}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!4 &5583506314554010153 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7198786907105307297, guid: afaf83437297cf3498ad5a0a34058603,
@@ -24036,6 +24390,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4482401684913885604}
+    - targetCorrespondingSourceObject: {fileID: 2376344531438396265, guid: 43922be0e9f63f14bb693707989db457,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8262370445902094883}
     - targetCorrespondingSourceObject: {fileID: 2577261269893149559, guid: 43922be0e9f63f14bb693707989db457,
         type: 3}
       insertIndex: 1

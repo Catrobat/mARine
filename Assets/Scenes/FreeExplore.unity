@@ -1601,6 +1601,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 507251461}
   m_CullTransparentMesh: 1
+--- !u!1 &515479810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 515479812}
+  - component: {fileID: 515479811}
+  m_Layer: 0
+  m_Name: highlightManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &515479811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515479810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51cb216ee2fb4594593ae78c742d2272, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  muteButton: {fileID: 231224841}
+  aiButton: {fileID: 210679790}
+  depthSlider: {fileID: 1808362438}
+  globalCanvasParent: {fileID: 830981612}
+--- !u!4 &515479812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515479810}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &542493988
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2498,7 +2546,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 2512387468973847745}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -2506,7 +2554,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -3901,10 +3949,10 @@ MonoBehaviour:
     marineBuddySplines: []
     splineDuration: 5
   - goalType: 1
-    audioInstructionText: "\u201CGreat! Now tap on the surface you\u2019ve scanned
-      to place your water environment. This is where your ocean adventure begins!\u201D"
+    audioInstructionText: "Great! Now tap on the surface you\u2019ve scanned to place
+      your water environment."
     targetToHighlight: {fileID: 0}
-    highlightColor: {r: 0, g: 1, b: 1, a: 0}
+    highlightColor: {r: 0, g: 1, b: 1, a: 1}
     onGoalStart:
       m_PersistentCalls:
         m_Calls:
@@ -7022,3 +7070,4 @@ SceneRoots:
   - {fileID: 1798453499}
   - {fileID: 1198802432}
   - {fileID: 1966721575}
+  - {fileID: 515479812}

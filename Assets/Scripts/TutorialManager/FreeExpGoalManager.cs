@@ -24,7 +24,8 @@ public class FreeExpGoalManager : MonoBehaviour
         Spawn,
         IntroGreeting,
         ShowPortalInstructions,
-        ApproachPortal,
+        AudioToggleButton,
+        AIButton,
         UseDepthSlider,
         ApproachCreature,
         TapInfoButton,
@@ -68,10 +69,34 @@ public class FreeExpGoalManager : MonoBehaviour
             return;
         }
 
+        ResolveSceneReferences();
+
         // marineBuddy.SetTTSManager(ttsManager);
         goalQueue = new Queue<FreeExpStep>(tutorialSteps);
         tutorialRunning = true;
         ProceedToNextStep();
+    }
+
+    public void ResolveSceneReferences()
+    {
+        foreach (var step in tutorialSteps)
+        {
+            switch(step.goalType)
+            {
+                case FreeExplorerGoals.AudioToggleButton:
+                    step.targetToHighlight = HighLightTargetRegistry.Instance?.muteButton;
+                    break;
+                    
+                case FreeExplorerGoals.AIButton:
+                    step.targetToHighlight = HighLightTargetRegistry.Instance?.aiButton;
+                    break;
+
+
+                case FreeExplorerGoals.UseDepthSlider:
+                    step.targetToHighlight = HighLightTargetRegistry.Instance?.depthSlider;
+                    break;
+            }
+        }
     }
 
     public void ProceedToNextStep() 
