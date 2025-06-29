@@ -115,16 +115,6 @@ public class FreeExpGoalManager : MonoBehaviour
         {
             if (currentStep.marineBuddySplines != null && currentStep.marineBuddySplines.Count > 0)
             {
-                // Move -> Speak -> Highligh
-                /* marineBuddy.FollowSpline(currentStep.marineBuddySplines, () => {
-                        marineBuddy.PlayTutorialStep(currentStep.audioInstructionText, () => {
-                                if (currentStep.targetToHighlight)
-                                marineBuddy.HighlightObject(currentStep.targetToHighlight, currentStep.highlightColor);
-                                });
-                        },
-                        currentStep.splineDuration
-                        ); */
-
                 marineBuddy.PerformTutorialStep(
                         currentStep.audioInstructionText,
                         currentStep.targetToHighlight,
@@ -135,14 +125,7 @@ public class FreeExpGoalManager : MonoBehaviour
                         );
             }
             else
-            {
-                // Speak -> Highlight
-                /* marineBuddy.PlayTutorialStep(currentStep.audioInstructionText, () => {
-                        if (currentStep.targetToHighlight)
-                        marineBuddy.HighlightObject(currentStep.targetToHighlight, currentStep.highlightColor);
-                        }); */
-
-
+            { 
                 marineBuddy.PerformTutorialStep(
                         currentStep.audioInstructionText,
                         currentStep.targetToHighlight,
