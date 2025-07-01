@@ -33,14 +33,27 @@ public static class QRCodeGenerator
             return null;
         }
 
-        string folderPath = Path.Combine(Application.persistentDataPath, "QRCodeExports");
-        if (!Directory.Exists(folderPath))
-            Directory.CreateDirectory(folderPath);
+        // Save in persistent data path (internal storage, not user accessible)
+        string internalFolder = Path.Combine(Application.persistentDataPath, "QRCodeExports");
+        if (!Directory.Exists(internalFolder))
+            Directory.CreateDirectory(internalFolder);
 
-        string filePath = Path.Combine(folderPath, moduleName + "_QR.png");
-        File.WriteAllBytes(filePath, pngData);
+        string internalFilePath = Path.Combine(internalFolder, moduleName + "_QR.png");
+        File.WriteAllBytes(internalFilePath, pngData);
 
-        Debug.Log($"QR Code saved at: {filePath}");
-        return filePath;
+        Debug.Log($"Internal QR saved at: {internalFilePath}");
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+        // Also save in Downloads folder for user access
+        string externalFolder = Path.Combine("/storage/emulated/0/Download", "QRCodeExports");
+        if (!Directory.Exists(externalFolder))
+            Directory.CreateDirectory(externalFolder);
+
+        string externalFilePath = Path.Combine(externalFolder, moduleName + "_QR.png");
+        File.WriteAllBytes(externalFilePath, pngData);
+        Debug.Log($"External QR saved at: {externalFilePath}");
+#endif
+
+        return internalFilePath; // Return internal path for app logic
     }
 }
