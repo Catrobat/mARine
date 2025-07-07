@@ -9,11 +9,21 @@ public class PlacedActorListManager : MonoBehaviour
     public Transform contentParent;
     public GameObject listItemPrefab;
     public Button saveButton;
-    public Button generateQRButton; // Assign this in the Inspector
+    public Button generateQRButton;
+
+    // UI references for QR popup
+    public GameObject qrPopupPanel;
+    public Image qrImageDisplay;
+    public Button shareButton;
+    public Button closeButton;
 
     private EnvironmentData environmentData;
     private string currentModuleName;
     private string currentModulePath;
+
+    // Track if QR has been generated
+    private bool qrGenerated = false;
+    private string generatedQRPath = "";
 
     void Start()
     {
@@ -22,10 +32,10 @@ public class PlacedActorListManager : MonoBehaviour
         string newModuleName = PlayerPrefs.GetString("NewModuleName", "");
         string selectedModulePath = PlayerPrefs.GetString("SelectedModulePath", "");
 
-        // Case 1: New module being created
+        // Handle New Module
         if (!string.IsNullOrEmpty(newModuleName) && string.IsNullOrEmpty(selectedModulePath))
         {
-            generateQRButton.gameObject.SetActive(false); // Hide QR for new modules
+            generateQRButton.gameObject.SetActive(false);
 
             string json = PlayerPrefs.GetString(newModuleName, "");
             if (string.IsNullOrEmpty(json))
@@ -47,7 +57,8 @@ public class PlacedActorListManager : MonoBehaviour
             string updatedJson = JsonUtility.ToJson(environmentData);
             PlayerPrefs.SetString(newModuleName, updatedJson);
         }
-        // Case 2: Existing saved module is opened
+
+        // Handle Existing Module
         else if (!string.IsNullOrEmpty(selectedModulePath) && File.Exists(selectedModulePath))
         {
             string json = ModuleSaveManager.LoadModule(selectedModulePath);
@@ -59,36 +70,52 @@ public class PlacedActorListManager : MonoBehaviour
             PlayerPrefs.SetString("SelectedEnvironmentKey", currentModuleName);
             PlayerPrefs.Save();
 
-            generateQRButton.gameObject.SetActive(true); // Show QR button for existing modules
+            generateQRButton.gameObject.SetActive(true);
 
+            //Check if QR already exists
+            string folder = Path.Combine(Application.persistentDataPath, "QRCodeExports");
+            string qrFilePath = Path.Combine(folder, currentModuleName + "_QR.png");
+
+            if (File.Exists(qrFilePath))
+            {
+                qrGenerated = true;
+                generatedQRPath = qrFilePath;
+                generateQRButton.GetComponentInChildren<Text>().text = "View Generated QR"; //Updated button text
+            }
+            else
+            {
+                generateQRButton.GetComponentInChildren<Text>().text = "Generate QR";
+            }
+
+            //Listener logic
+            generateQRButton.onClick.RemoveAllListeners();
             generateQRButton.onClick.AddListener(() =>
             {
-                string folder = Path.Combine(Application.persistentDataPath, "QRCodeExports");
-                string qrFilePath = Path.Combine(folder, currentModuleName + "_QR.png");
-
-                if (File.Exists(qrFilePath))
+                if (qrGenerated && File.Exists(generatedQRPath))
                 {
-                    Debug.Log($"QR already exists at: {qrFilePath}");
+                    ShowQRPopup(); //Only show popup when user clicks "View Generated QR"
                     return;
                 }
 
+                // Generate new QR
                 string moduleJson = JsonUtility.ToJson(environmentData);
                 string savedPath = QRCodeGenerator.GenerateAndSaveQRCode(moduleJson, currentModuleName);
 
                 if (!string.IsNullOrEmpty(savedPath))
                 {
-                    Debug.Log($"QR code generated at: {savedPath}");
+                    qrGenerated = true;
+                    generatedQRPath = savedPath;
+                    generateQRButton.GetComponentInChildren<Text>().text = "View Generated QR"; //Change button text after generation
                 }
             });
         }
         else
         {
             Debug.LogError("No valid module found.");
-            generateQRButton.gameObject.SetActive(false); // Hide by default
+            generateQRButton.gameObject.SetActive(false);
             return;
         }
 
-        // Store in cache for edit/delete mode
         EnvironmentDataCache.SetData(environmentData);
 
         if (environmentData == null || environmentData.placedActors == null || environmentData.placedActors.Count == 0)
@@ -144,5 +171,45 @@ public class PlacedActorListManager : MonoBehaviour
 
         Debug.Log($"Module '{currentModuleName}' saved to disk.");
         SceneManager.LoadScene("StartScreenScene");
+    }
+
+    // Show QR popup
+    void ShowQRPopup()
+    {
+        if (!File.Exists(generatedQRPath))
+        {
+            Debug.LogWarning("QR file not found at: " + generatedQRPath);
+            return;
+        }
+
+        byte[] imageData = File.ReadAllBytes(generatedQRPath);
+        Texture2D tex = new Texture2D(2, 2);
+        tex.LoadImage(imageData);
+
+        qrImageDisplay.sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f));
+        qrPopupPanel.SetActive(true);
+
+        shareButton.onClick.RemoveAllListeners();
+        shareButton.onClick.AddListener(() => ShareImage(generatedQRPath));
+
+        closeButton.onClick.RemoveAllListeners();
+        closeButton.onClick.AddListener(() => qrPopupPanel.SetActive(false));
+    }
+
+    // Share QR using NativeShare
+    void ShareImage(string filePath)
+    {
+        if (!File.Exists(filePath))
+        {
+            Debug.LogError("File to share not found.");
+            return;
+        }
+
+        new NativeShare()
+            .AddFile(filePath)
+            .SetSubject("Check out this AR Module QR!")
+            .SetText("Scan this QR to load a MarineAR module!")
+            .SetTitle("Share QR Code")
+            .Share();
     }
 }
