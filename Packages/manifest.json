@@ -23,6 +23,7 @@
     "com.unity.xr.management": "4.5.1",
     "com.whinarn.unitymeshsimplifier": "https://github.com/Whinarn/UnityMeshSimplifier.git",
     "com.whisper.unity": "https://github.com/Macoron/whisper.unity.git?path=/Packages/com.whisper.unity",
+    "com.yasirkula.nativeshare": "https://github.com/yasirkula/UnityNativeShare.git",
     "net.gree.unity-webview": "https://github.com/gree/unity-webview.git?path=/dist/package",
     "com.unity.modules.accessibility": "1.0.0",
     "com.unity.modules.ai": "1.0.0",

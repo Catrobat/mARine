@@ -450,6 +450,13 @@
       "dependencies": {},
       "hash": "529a628a915a97799e89e061af9cb7c71407124d"
     },
+    "com.yasirkula.nativeshare": {
+      "version": "https://github.com/yasirkula/UnityNativeShare.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "99559c82d9ef7fa2e2c588b91b1995f117f754b2"
+    },
     "net.gree.unity-webview": {
       "version": "https://github.com/gree/unity-webview.git?path=/dist/package",
       "depth": 0,
