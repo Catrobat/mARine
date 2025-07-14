@@ -25,7 +25,8 @@ Material:
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _MAIN_LIGHT_SHADOWS
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -66,6 +67,7 @@ Material:
     - _DotLayoutScale: 15
     - _DotScale: 1.5
     - _DotSize: 15
+    - _MAIN_LIGHT: 0
     - _PlaneAlpha: 1
     - _PlaneFresnel: 1
     - _PlaneOpacity: 0.5

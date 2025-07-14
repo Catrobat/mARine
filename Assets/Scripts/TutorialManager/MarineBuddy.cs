@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using cakeslice;
 using UnityEngine.UI;
 using UnityEngine.Splines;
+using TMPro;
 
 public class MarineBuddy : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class MarineBuddy : MonoBehaviour
     public Color defaultGlowColor = Color.cyan;
 
     private MarineBuddyMovementController movementController;
+    [SerializeField] private GameObject canvas;  //  marine-buddy canvas
 
     private void Awake()
     {
@@ -51,13 +53,26 @@ public class MarineBuddy : MonoBehaviour
 
         bool ttsDone = false;
         bool highlightDone = false;
+        bool textDone = false;
 
         float estimatedTTSDuration = EstimateSpeechDuration(instructionText);
 
         if (!string.IsNullOrWhiteSpace(instructionText))
+        {
             StartCoroutine(PlayTTSRoutineParallel(instructionText, () => ttsDone = true));
+            if (canvas != null)
+                StartCoroutine(DisplayTextRoutine(instructionText, estimatedTTSDuration, () => textDone = true));
+            else
+            {
+                Debug.LogWarning("Canvas not found!");
+                textDone = true;
+            }
+        }
         else
+        {
             ttsDone = true;
+            textDone = true;
+        }
 
         if (target != null)
         {
@@ -71,7 +86,7 @@ public class MarineBuddy : MonoBehaviour
             highlightDone = true;
         }
 
-        yield return new WaitUntil(() => ttsDone && highlightDone);
+        yield return new WaitUntil(() => ttsDone && highlightDone && textDone);
 
         onStepComplete?.Invoke();
     }
@@ -94,6 +109,66 @@ public class MarineBuddy : MonoBehaviour
             Debug.LogWarning("MarineBuddy: TTSManager is not assigned.");
         }
 #endif
+        onDone?.Invoke();
+    }
+
+    private IEnumerator DisplayTextRoutine(string instructionText, float duration, UnityAction onDone)
+    {
+        if (canvas == null)
+        {
+            Debug.LogWarning("MarineBuddy: Canvas is not assigned.");
+            onDone?.Invoke();
+            yield break;
+        }
+
+        TextMeshProUGUI textComponent = canvas.GetComponentInChildren<TextMeshProUGUI>();
+        if (textComponent == null)
+        {
+            Debug.LogWarning("MarineBuddy: No Text component found on the canvas or children.");
+            onDone?.Invoke();
+            yield break;
+        }
+
+        textComponent.text = "";  // Clear the previous text
+        string[] words = instructionText.Split(' ');
+        if (words.Length == 0)
+        {
+            yield break; // Exit if no words
+        }
+        float wordDelay = duration / words.Length;
+
+        ScrollRect scrollRect = canvas.GetComponentInChildren<ScrollRect>();
+        if (scrollRect != null)
+        {
+            // Start at the top
+            Canvas.ForceUpdateCanvases();
+            scrollRect.verticalNormalizedPosition = 1f; // 1 = top
+            Canvas.ForceUpdateCanvases();
+
+            foreach (string word in words)
+            {
+                textComponent.text += word + " ";
+                yield return new WaitForSeconds(wordDelay);
+                // Auto-scroll to bottom only if content exceeds viewport
+                Canvas.ForceUpdateCanvases();
+                LayoutRebuilder.ForceRebuildLayoutImmediate(textComponent.rectTransform);
+                if (textComponent.preferredHeight > scrollRect.viewport.rect.height)
+                    scrollRect.verticalNormalizedPosition = 0f; // Scroll to bottom if needed
+                Canvas.ForceUpdateCanvases();
+            }
+        }
+        else
+        {
+            Debug.LogWarning("MarineBuddy: No ScrollRect found in canvas children.");
+            foreach (string word in words)
+            {
+                textComponent.text += word + " ";
+                yield return new WaitForSeconds(wordDelay);
+            }
+        }
+
+        yield return new WaitForSeconds(0.5f);  // Hold a bit after completion
+        textComponent.text = "";  // Clear when done
         onDone?.Invoke();
     }
 
