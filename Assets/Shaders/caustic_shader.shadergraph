@@ -2275,8 +2275,8 @@
     "m_ObjectId": "1f95818d01b5480890adac717c79072a",
     "m_Title": "Lerp A",
     "m_Position": {
-        "x": 2636.0,
-        "y": -1209.0
+        "x": 2635.2001953125,
+        "y": -1210.3997802734375
     }
 }
 
@@ -4389,10 +4389,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 2684.999755859375,
-            "y": 1175.9996337890625,
-            "width": 208.000244140625,
-            "height": 302.0003662109375
+            "x": 2694.999755859375,
+            "y": 722.9999389648438,
+            "width": 208.0,
+            "height": 301.99993896484377
         }
     },
     "m_Slots": [
@@ -4530,6 +4530,7 @@
     },
     "isMainTexture": false,
     "useTilingAndOffset": false,
+    "useTexelSize": true,
     "m_Modifiable": true,
     "m_DefaultType": 0
 }
@@ -4540,8 +4541,8 @@
     "m_ObjectId": "6fcb4855c44847159987b56a55183ef4",
     "m_Title": "Lerp B",
     "m_Position": {
-        "x": 3367.0,
-        "y": -908.0
+        "x": 3366.400146484375,
+        "y": -909.6001586914063
     }
 }
 
@@ -5786,6 +5787,7 @@
     },
     "isMainTexture": false,
     "useTilingAndOffset": false,
+    "useTexelSize": true,
     "m_Modifiable": true,
     "m_DefaultType": 0
 }
@@ -6281,8 +6283,8 @@
     "m_ObjectId": "a0c2da25a43743ed96a7de6cafecfe6c",
     "m_Title": "Lerp Alpha",
     "m_Position": {
-        "x": 3021.0,
-        "y": -1325.0
+        "x": 3020.80029296875,
+        "y": -1326.3997802734375
     }
 }
 
@@ -7059,8 +7061,8 @@
     "m_ObjectId": "bf80a6b7ae294f4982b2d02eb4074eac",
     "m_Title": "Animated coordinates",
     "m_Position": {
-        "x": 3090.0,
-        "y": 815.0
+        "x": 3089.600341796875,
+        "y": 813.5999755859375
     }
 }
 
@@ -8004,7 +8006,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "Alpha",
     "m_StageCapability": 2,
-    "m_Value": 1.0,
+    "m_Value": 0.30000001192092898,
     "m_DefaultValue": 1.0,
     "m_Labels": []
 }
@@ -8418,8 +8420,8 @@
     "m_ObjectId": "f7c76d22efd64274994209161c3cad7d",
     "m_Title": "Scaled coordinates",
     "m_Position": {
-        "x": 2670.0,
-        "y": 1139.0
+        "x": 2669.600341796875,
+        "y": 1137.6002197265625
     }
 }
 
@@ -8543,8 +8545,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 5085.0,
-            "y": -637.9999389648438,
+            "x": 5073.99951171875,
+            "y": -641.9999389648438,
             "width": 105.0,
             "height": 34.0
         }

@@ -11,6 +11,7 @@ public class FreeExpGoalManager : MonoBehaviour
 
     [SerializeField] private CrossPlatformTTS ttsManager;
     [SerializeField] private bool autoStart;
+    [SerializeField] private IdentifyCreatureMiniGame identifyCreatureMiniGame; 
 
     public void SetMarineBuddy(MarineBuddy buddy)
     {
@@ -23,6 +24,7 @@ public class FreeExpGoalManager : MonoBehaviour
         Scan,
         Spawn,
         IntroGreeting,
+        IdentifyMultipleCreatures,
         ShowPortalInstructions,
         AudioToggleButton,
         AIButton,
@@ -110,6 +112,14 @@ public class FreeExpGoalManager : MonoBehaviour
 
         currentStep = goalQueue.Dequeue();
         currentStep.onGoalStart?.Invoke();
+
+        if (currentStep.goalType == FreeExplorerGoals.IdentifyMultipleCreatures && identifyCreatureMiniGame != null)
+        {
+            Debug.Log("[FreeExpGoalManager] Starting IdentifyCreatureMiniGame...");
+            identifyCreatureMiniGame.StartMiniGame();
+
+            return;
+        }
 
         if (ShouldUseBuddy(currentStep.goalType) && marineBuddy != null)
         {
