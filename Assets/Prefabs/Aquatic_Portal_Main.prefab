@@ -1590,7 +1590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2662373686145763016
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6028,7 +6028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8359384776180564830
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9560,9 +9560,9 @@ RectTransform:
   m_Father: {fileID: 8359384776180564830}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: -17}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &845441877044973292
 CanvasRenderer:
@@ -11058,22 +11058,8 @@ MonoBehaviour:
     marineBuddySplines:
     - {fileID: 2902854725887200709}
     splineDuration: 5
-  - goalType: 3
-    audioInstructionText: 
-    targetToHighlight: {fileID: 0}
-    highlightColor: {r: 0, g: 1, b: 1, a: 0.67058825}
-    onGoalStart:
-      m_PersistentCalls:
-        m_Calls: []
-    onGoalComplete:
-      m_PersistentCalls:
-        m_Calls: []
-    marineBuddySplines:
-    - {fileID: 0}
-    splineDuration: 0
   - goalType: 4
-    audioInstructionText: This is the audio toggle button. You can use it to mute
-      or unmute the voice instructions anytime during your exploration.
+    audioInstructionText: Now i will explain the ui and give necessary instructions.
     targetToHighlight: {fileID: 0}
     highlightColor: {r: 0, g: 1, b: 1, a: 1}
     onGoalStart:
@@ -11082,11 +11068,12 @@ MonoBehaviour:
     onGoalComplete:
       m_PersistentCalls:
         m_Calls: []
-    marineBuddySplines: []
-    splineDuration: 0
+    marineBuddySplines:
+    - {fileID: 791184122631408282}
+    splineDuration: 3
   - goalType: 5
-    audioInstructionText: This button opens up MarineBuddy's AI assistant. You can
-      tap it to ask questions or learn more about marine life while you explore.
+    audioInstructionText: This is the audio toggle button. You can use it to mute
+      or unmute the voice instructions anytime during your exploration.
     targetToHighlight: {fileID: 0}
     highlightColor: {r: 0, g: 1, b: 1, a: 0.67058825}
     onGoalStart:
@@ -11098,6 +11085,19 @@ MonoBehaviour:
     marineBuddySplines: []
     splineDuration: 0
   - goalType: 6
+    audioInstructionText: This button opens up MarineBuddy's AI assistant. You can
+      tap it to ask questions or learn more about marine life while you explore.
+    targetToHighlight: {fileID: 0}
+    highlightColor: {r: 0, g: 1, b: 1, a: 1}
+    onGoalStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onGoalComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    marineBuddySplines: []
+    splineDuration: 0
+  - goalType: 7
     audioInstructionText: "This slider lets you change how deep you want to go. Slide
       it to explore different ocean zones\u2014from shallow reefs to the darkest
       depths."
@@ -11111,17 +11111,20 @@ MonoBehaviour:
         m_Calls: []
     marineBuddySplines: []
     splineDuration: 0
-  - goalType: 7
-    audioInstructionText: 
+  - goalType: 3
+    audioInstructionText: "\"Welcome to the Identify-the-Creature game! Watch the
+      creature, choose the right name, and test your ocean knowledge. Let\u2019s
+      dive in!"
     targetToHighlight: {fileID: 0}
-    highlightColor: {r: 0, g: 1, b: 1, a: 1}
+    highlightColor: {r: 0, g: 1, b: 1, a: 0.67058825}
     onGoalStart:
       m_PersistentCalls:
         m_Calls: []
     onGoalComplete:
       m_PersistentCalls:
         m_Calls: []
-    marineBuddySplines: []
+    marineBuddySplines:
+    - {fileID: 0}
     splineDuration: 0
 --- !u!114 &8776600576829342458
 MonoBehaviour:
@@ -16309,7 +16312,7 @@ RectTransform:
   m_Father: {fileID: 1735461450305933674}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -16539,9 +16542,9 @@ RectTransform:
   m_Father: {fileID: 8359384776180564830}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: 20}
+  m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &4360677008557855892
 CanvasRenderer:
@@ -18561,9 +18564,9 @@ RectTransform:
   m_Father: {fileID: 8359384776180564830}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: -17}
+  m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &418478388294566186
 CanvasRenderer:
@@ -19193,8 +19196,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6055161880034985875}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.6352739}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
