@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.Splines;
 
 public class MarineBuddyMovementController: MonoBehaviour
