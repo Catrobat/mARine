@@ -78,4 +78,3 @@ public class IdentifyCreatureMiniGame: MonoBehaviour
         public MiniQuizQuestion questionData;
     }
 }
-

@@ -19,13 +19,13 @@ public class MiniQuizController : MonoBehaviour
     private readonly Color wrongColor = new Color32(0xF4, 0x43, 0x36, 0xFF);     // Red
     private readonly Color normalColor = new Color32(0xE0, 0xE0, 0xE0, 0xFF);    // Default gray
 
-    public void ShowQuestion(string question, string[] options, int correctIndex, Action onCorrect)
+    public void ShowQuestion(string question, string[] options, int correctIndex, Action onComplete)
     {
         quizPanel.SetActive(true);
         questionText.text = question;
         feedbackText.text = "";
 
-        onCorrectAnswer = onCorrect;
+        onCorrectAnswer = () => { if (onComplete != null) onComplete(); }; // Only for correct answer if needed separately
         correctAnswerIndex = correctIndex;
 
         for (int i = 0; i < optionButtons.Length; i++)
@@ -82,8 +82,7 @@ public class MiniQuizController : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
 
         quizPanel.SetActive(false);
-        if (isCorrect)
-            onCorrectAnswer?.Invoke();
+        onCorrectAnswer?.Invoke();
     }
 }
 
@@ -93,5 +92,4 @@ public class MiniQuizQuestion
     public string questionText;
     public string[] options = new string[4];
     public int correctAnswerIndex; 
-}
-
+}   
