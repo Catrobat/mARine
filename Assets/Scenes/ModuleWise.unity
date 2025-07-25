@@ -4024,6 +4024,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1623125981}
   m_CullTransparentMesh: 1
+--- !u!1 &1695229522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1695229524}
+  - component: {fileID: 1695229523}
+  m_Layer: 0
+  m_Name: GoalManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1695229523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695229522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 973a22a5316c90143a7d80a2228c37f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  marineBuddy: {fileID: 0}
+  ttsManager: {fileID: 1734174294}
+  autoStart: 0
+  identifyCreatureMiniGame: {fileID: 0}
+  tutorialSteps: []
+--- !u!4 &1695229524
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695229522}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.66707, y: 0, z: 20.42552}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1704676861
 GameObject:
   m_ObjectHideFlags: 0
@@ -4199,6 +4248,76 @@ MonoBehaviour:
   availableModule: Module-5
   toastPanel: {fileID: 1074784677}
   toastText: {fileID: 1135902590}
+--- !u!1 &1734174291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1734174295}
+  - component: {fileID: 1734174294}
+  - component: {fileID: 1734174293}
+  - component: {fileID: 1734174292}
+  m_Layer: 0
+  m_Name: TTSManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1734174292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734174291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0342178784d8f14bb968a6e455d1509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1734174293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734174291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0838e979f12716249a1daadc5b643ba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1734174294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734174291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 960c55f53c2b24a4f895e0d99b8382ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1734174295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734174291}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.66707, y: 0, z: 20.42552}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1744780149
 GameObject:
   m_ObjectHideFlags: 0
@@ -5184,6 +5303,7 @@ GameObject:
   - component: {fileID: 2512387470422636672}
   - component: {fileID: 2512387470422636671}
   - component: {fileID: 2512387470422636670}
+  - component: {fileID: 2512387470422636675}
   - component: {fileID: 2512387470422636674}
   m_Layer: 0
   m_Name: XR Origin (AR Rig)
@@ -5199,7 +5319,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2512387470422636669}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e8155f22873f9b4880528d3d8fb3211, type: 3}
   m_Name: 
@@ -5209,6 +5329,8 @@ MonoBehaviour:
   inputActions: {fileID: -944628639613478452, guid: 270ecff408b245e46b39a4dee3b8aa5b,
     type: 3}
   fixedWorldContainer: {fileID: 0}
+  goalManager: {fileID: 1695229523}
+  globalTTS: {fileID: 1734174294}
 --- !u!114 &2512387470422636671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5280,6 +5402,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.8939446, y: 1, z: 0.32624504}
   m_Center: {x: 0.15187842, y: 0, z: 0.16620035}
+--- !u!114 &2512387470422636675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2512387470422636669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71d61169d2bb5614a9cd4dcac4b0725b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterPlanePrefab: {fileID: 3735939103118759355, guid: 061c2275e39d66e4899ccb4e590dc96b,
+    type: 3}
+  inputActions: {fileID: -944628639613478452, guid: 270ecff408b245e46b39a4dee3b8aa5b,
+    type: 3}
+  fixedWorldContainer: {fileID: 0}
+  goalManager: {fileID: 0}
+  globalTTS: {fileID: 0}
 --- !u!4 &2512387470860572925
 Transform:
   m_ObjectHideFlags: 0
@@ -5405,3 +5546,5 @@ SceneRoots:
   - {fileID: 599945790}
   - {fileID: 1723464599}
   - {fileID: 364926880}
+  - {fileID: 1734174295}
+  - {fileID: 1695229524}
