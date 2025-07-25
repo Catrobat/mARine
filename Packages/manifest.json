@@ -5,6 +5,7 @@
     "com.meta.xr.sdk.voice": "77.0.0",
     "com.ptc.vuforia.engine": "file:com.ptc.vuforia.engine-11.2.4.tgz",
     "com.unity.2d.sprite": "1.0.0",
+    "com.unity.cloud.gltfast": "6.13.0",
     "com.unity.collab-proxy": "2.8.2",
     "com.unity.feature.development": "1.0.2",
     "com.unity.inputsystem": "1.14.0",
