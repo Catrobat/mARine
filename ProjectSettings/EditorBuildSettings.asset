@@ -23,33 +23,36 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ModuleWise.unity
     guid: bce86c1fad171da42ae83fdb80fb4b67
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/StartScreenScene.unity
     guid: b993e70402c219049ad283c99c933b4e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/QRScannerScene.unity
     guid: 856c4906e67765a4ba4c8a27113eef6d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CreateProjectScene.unity
     guid: 2abadc2cb29b2b14796c26cfe58e1fcd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestScene2.unity
     guid: e188e9d556541b54c8a69a158bc9523c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PlacedActorListScene.unity
     guid: a7387ea049f67924c9f54edaaaaf062a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BehaviorScene.unity
     guid: 874e489f07464e64ca8b28228f99af8f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AddScriptsScene.unity
     guid: e197e9afbd776cf4caefe5e925d89772
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ARPlacementScene.unity
     guid: ca99e8a77ea4fd946901f777f83c50f6
   - enabled: 0
     path: Assets/Samples/Google Cardboard XR Plugin for Unity/1.29.0/Hello Cardboard/Scenes/VrMode.unity
     guid: a45c80a4da1fa4625a30ce04b599e90d
+  - enabled: 1
+    path: Assets/Scenes/TestScene_1.unity
+    guid: fd6465204ce0293479a7190d811db2f3
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 6ee72d15cf39dd748a13eac57397b9af,
       type: 2}
