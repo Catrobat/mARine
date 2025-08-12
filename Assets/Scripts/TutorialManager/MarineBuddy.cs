@@ -9,6 +9,8 @@ using TMPro;
 
 public class MarineBuddy : MonoBehaviour
 {
+    public static MarineBuddy Instance;
+
     [Header("TTS Settings")]
     private CrossPlatformTTS ttsManager;
 
@@ -21,7 +23,20 @@ public class MarineBuddy : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else Destroy(gameObject);
+
         movementController = GetComponent<MarineBuddyMovementController>();
+    }
+
+    public void OnNewLayerLoaded()
+    {
+        Debug.Log("[MarineBuddy] Layer loaded. Re-initializing if necessary...");
+        // Optional: Reset animation, position, etc.
     }
 
     public void SetTTSManager(CrossPlatformTTS tts)

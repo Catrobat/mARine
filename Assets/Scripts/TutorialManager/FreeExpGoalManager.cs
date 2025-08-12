@@ -6,6 +6,8 @@ using UnityEngine.Splines;
 
 public class FreeExpGoalManager : MonoBehaviour
 {
+    public static FreeExpGoalManager Instance;
+
     [Header("Marie Buddy reference")]
     [SerializeField] private MarineBuddy marineBuddy;
 
@@ -54,16 +56,38 @@ public class FreeExpGoalManager : MonoBehaviour
 
     private bool tutorialRunning = false;  // Flag -> Checker (tutorial)
     private Coroutine delayedCompletionRoutine;
+    
+    private int currentGoalIndex = 0;
+    public string currentLayerName; 
+
+    private void Awake()
+    {
+        if (Instance == null) {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else Destroy(gameObject);
+    }
+
+    public void OnNewLayerLoaded()
+    {
+        Debug.Log("[FreeExpGoalManager] Layer loaded. Can now resume or reset tutorial steps.");
+        // Optional: Call ResolveSceneReferences() again or refresh targets
+    }
+
 
     IEnumerator Start()
     {
         yield return  StartCoroutine(WaitForTTSManagerReady());
 
         if (autoStart)
-            StartFreeExploreTutorial();
+        {
+            if (!tutorialRunning)
+                StartFreeExploreTutorial();
+        }
     }
 
-    public void StartFreeExploreTutorial()
+    public void StartFreeExploreTutorial(bool resumeFromLast = false)
     {
         if (tutorialSteps.Count == 0)
         {
@@ -72,6 +96,9 @@ public class FreeExpGoalManager : MonoBehaviour
         }
 
         ResolveSceneReferences();
+
+        if (!resumeFromLast)
+            currentGoalIndex = 0;
 
         // marineBuddy.SetTTSManager(ttsManager);
         goalQueue = new Queue<FreeExpStep>(tutorialSteps);
@@ -111,6 +138,7 @@ public class FreeExpGoalManager : MonoBehaviour
         }
 
         currentStep = goalQueue.Dequeue();
+        currentGoalIndex++;
         currentStep.onGoalStart?.Invoke();
 
         if (currentStep.goalType == FreeExplorerGoals.IdentifyMultipleCreatures && identifyCreatureMiniGame != null)
