@@ -13,6 +13,8 @@ public class MarineBuddyMovementController: MonoBehaviour
 
     public IEnumerator FollowSpline(SplineContainer spline, UnityAction onReached = null, float duration = 5f)
     {
+        Debug.Log($"[MovementController] Attempting to follow spline. isMoving={isMoving}, spline is null={(spline == null)}, duration={duration}");
+        
         if (isMoving || spline == null)
             yield break;
 

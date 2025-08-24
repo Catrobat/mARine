@@ -98,8 +98,12 @@ public class WaterPlaneSpawner : MonoBehaviour
                     Transform layerSpawnPoint = _spawnedPortal.transform.Find("LayerSpawnPoint");
                     if (layerSpawnPoint != null && layerLoadManager != null)
                     {
+                        string firstLayerName = "Layer1_ROOT";
+
                         // Pass the LayerSpawnPoint's transform to load the layer correctly
-                        layerLoadManager.LoadLayer("Layer1_ROOT", layerSpawnPoint);
+                        LayerLoadManager.Instance.LoadLayer(firstLayerName, layerSpawnPoint);
+
+                        // goalManager.StartFreeExploreTutorial(firstLayerName);
                     }
                     else
                     {

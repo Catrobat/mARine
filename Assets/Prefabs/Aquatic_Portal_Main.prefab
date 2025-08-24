@@ -386,7 +386,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7189232344014724012
 Transform:
   m_ObjectHideFlags: 0
@@ -1377,7 +1377,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8162430938569860569
 Transform:
   m_ObjectHideFlags: 0
@@ -2531,91 +2531,8 @@ MonoBehaviour:
   ttsManager: {fileID: 8439724806763081788}
   autoStart: 1
   identifyCreatureMiniGame: {fileID: 8776600576829342458}
-  tutorialSteps:
-  - goalType: 2
-    audioInstructionText: "Hey explorer! The aquatic portal is ready \u2014 just
-      step through to begin your underwater journey. I\u2019m Marine Buddy, and I\u2019ll
-      be right by your side as we discover the wonders of the deep sea together.\""
-    targetToHighlight: {fileID: 5059593819156394131}
-    highlightColor: {r: 0, g: 1, b: 1, a: 0.67058825}
-    onGoalStart:
-      m_PersistentCalls:
-        m_Calls: []
-    onGoalComplete:
-      m_PersistentCalls:
-        m_Calls: []
-    marineBuddySplines:
-    - {fileID: 0}
-    splineDuration: 5
-  - goalType: 4
-    audioInstructionText: Now i will explain the ui and give necessary instructions.
-    targetToHighlight: {fileID: 0}
-    highlightColor: {r: 0, g: 1, b: 1, a: 1}
-    onGoalStart:
-      m_PersistentCalls:
-        m_Calls: []
-    onGoalComplete:
-      m_PersistentCalls:
-        m_Calls: []
-    marineBuddySplines:
-    - {fileID: 0}
-    splineDuration: 3
-  - goalType: 5
-    audioInstructionText: This is the audio toggle button. You can use it to mute
-      or unmute the voice instructions anytime during your exploration.
-    targetToHighlight: {fileID: 0}
-    highlightColor: {r: 0, g: 1, b: 1, a: 0.67058825}
-    onGoalStart:
-      m_PersistentCalls:
-        m_Calls: []
-    onGoalComplete:
-      m_PersistentCalls:
-        m_Calls: []
-    marineBuddySplines: []
-    splineDuration: 0
-  - goalType: 6
-    audioInstructionText: This button opens up MarineBuddy's AI assistant. You can
-      tap it to ask questions or learn more about marine life while you explore.
-    targetToHighlight: {fileID: 0}
-    highlightColor: {r: 0, g: 1, b: 1, a: 1}
-    onGoalStart:
-      m_PersistentCalls:
-        m_Calls: []
-    onGoalComplete:
-      m_PersistentCalls:
-        m_Calls: []
-    marineBuddySplines: []
-    splineDuration: 0
-  - goalType: 7
-    audioInstructionText: "This slider lets you change how deep you want to go. Slide
-      it to explore different ocean zones\u2014from shallow reefs to the darkest
-      depths."
-    targetToHighlight: {fileID: 0}
-    highlightColor: {r: 0, g: 1, b: 1, a: 1}
-    onGoalStart:
-      m_PersistentCalls:
-        m_Calls: []
-    onGoalComplete:
-      m_PersistentCalls:
-        m_Calls: []
-    marineBuddySplines: []
-    splineDuration: 0
-  - goalType: 3
-    audioInstructionText: "\"Welcome to the Identify-the-Creature game! Watch the
-      creature, choose the right name, and test your ocean knowledge. Let\u2019s
-      dive in!"
-    targetToHighlight: {fileID: 0}
-    highlightColor: {r: 0, g: 1, b: 1, a: 0.67058825}
-    onGoalStart:
-      m_PersistentCalls:
-        m_Calls: []
-    onGoalComplete:
-      m_PersistentCalls:
-        m_Calls: []
-    marineBuddySplines:
-    - {fileID: 0}
-    splineDuration: 0
-  currentLayerName: 
+  prePortalSteps: []
+  layerTutorials: []
 --- !u!114 &8776600576829342458
 MonoBehaviour:
   m_ObjectHideFlags: 0

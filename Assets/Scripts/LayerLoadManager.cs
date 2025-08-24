@@ -7,6 +7,7 @@ public class LayerLoadManager : MonoBehaviour
     public static LayerLoadManager Instance;
 
     private GameObject currentLayerInstance;
+    private string currentlyLoadingLayerName; // Variable to remember the layer name
 
     // Singleton Pattern
     private void Awake() 
@@ -24,6 +25,8 @@ public class LayerLoadManager : MonoBehaviour
             Destroy(currentLayerInstance);
         }
 
+        currentlyLoadingLayerName = addressableName;
+
         Addressables.InstantiateAsync(addressableName, parentTranform).Completed += OnLayerLoaded;
     }
 
@@ -37,7 +40,14 @@ public class LayerLoadManager : MonoBehaviour
             currentLayerInstance.transform.localRotation = Quaternion.identity;
             currentLayerInstance.transform.localScale = Vector3.one;
 
-            // Dynamically find MarineBuddy within the newly loaded layer instance
+
+            // Now that the layer is confirmed to be loaded, start its tutorial.
+            if (FreeExpGoalManager.Instance != null)
+            {
+                FreeExpGoalManager.Instance.StartFreeExploreTutorial(currentlyLoadingLayerName);
+            }
+
+            /* /* // Dynamically find MarineBuddy within the newly loaded layer instance
             // and inform goalManager and set TTSManager
             MarineBuddy buddy = currentLayerInstance.GetComponentInChildren<MarineBuddy>(true);
             if (buddy != null)
@@ -62,8 +72,8 @@ public class LayerLoadManager : MonoBehaviour
 
             // Inform MarineBuddy and FreeExpGoalManager that a new layer is loaded
             // These calls should trigger reconnection logic in those singletons
-            if (MarineBuddy.Instance != null) MarineBuddy.Instance.OnNewLayerLoaded();
-            if (FreeExpGoalManager.Instance != null) FreeExpGoalManager.Instance.OnNewLayerLoaded();
+            //if (MarineBuddy.Instance != null) MarineBuddy.Instance.OnNewLayerLoaded();
+            if (FreeExpGoalManager.Instance != null) FreeExpGoalManager.Instance.OnNewLayerLoaded(); */
         }
-    }
+    } 
 }

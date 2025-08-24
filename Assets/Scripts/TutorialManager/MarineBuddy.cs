@@ -63,6 +63,7 @@ public class MarineBuddy : MonoBehaviour
         float splineDuration,
         UnityAction onStepComplete)
     {
+        Debug.Log($"[MarineBuddy] Received tutorial step. Spline count: {splines?.Count ?? 0}, Duration: {splineDuration}s.");
         if (splines != null && splines.Count > 0)
             yield return StartCoroutine(FollowSplineSequence(splines, null, splineDuration));
 

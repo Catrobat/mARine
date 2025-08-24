@@ -42,6 +42,9 @@ public class PortalManager : MonoBehaviour
 
             // Tell the LayerLoadManager to load the layer at this configured point  
             LayerLoadManager.Instance.LoadLayer(config.Value.layerAddressableName, dynamicSpawnPoint);
+
+            // Tell the GoalManager to start the tutorial for this layer.
+            // FreeExpGoalManager.Instance.StartFreeExploreTutorial(config.Value.layerAddressableName);
         } 
         else
         {

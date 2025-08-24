@@ -4705,11 +4705,12 @@ MonoBehaviour:
   ttsManager: {fileID: 1581537570}
   autoStart: 1
   identifyCreatureMiniGame: {fileID: 0}
-  tutorialSteps:
+  prePortalSteps:
   - goalType: 0
-    audioInstructionText: Scan the ground around you by gently moving your device.
+    audioInstructionText: Scan the groud by moving the device to and fro
     targetToHighlight: {fileID: 0}
-    highlightColor: {r: 0, g: 1, b: 1, a: 0}
+    dynamicTargetName: 
+    highlightColor: {r: 0, g: 0, b: 0, a: 0}
     onGoalStart:
       m_PersistentCalls:
         m_Calls:
@@ -4741,12 +4742,13 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     marineBuddySplines: []
-    splineDuration: 5
+    dynamicSplineNames: []
+    splineDuration: 0
   - goalType: 1
-    audioInstructionText: "Great! Now tap on the surface you\u2019ve scanned to place
-      your water environment."
+    audioInstructionText: Tap the Scanned area to spawn the Aquatic portal
     targetToHighlight: {fileID: 0}
-    highlightColor: {r: 0, g: 1, b: 1, a: 1}
+    dynamicTargetName: 
+    highlightColor: {r: 0, g: 0, b: 0, a: 0}
     onGoalStart:
       m_PersistentCalls:
         m_Calls:
@@ -4778,8 +4780,86 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     marineBuddySplines: []
-    splineDuration: 5
-  currentLayerName: 
+    dynamicSplineNames: []
+    splineDuration: 0
+  layerTutorials:
+  - layerName: Layer1_ROOT
+    steps:
+    - goalType: 2
+      audioInstructionText: Greeting! The Aquatic portal is ready!
+      targetToHighlight: {fileID: 0}
+      dynamicTargetName: 
+      highlightColor: {r: 0, g: 0, b: 0, a: 0}
+      onGoalStart:
+        m_PersistentCalls:
+          m_Calls: []
+      onGoalComplete:
+        m_PersistentCalls:
+          m_Calls: []
+      marineBuddySplines: []
+      dynamicSplineNames:
+      - Spline
+      splineDuration: 3
+    - goalType: 4
+      audioInstructionText: Hola man!
+      targetToHighlight: {fileID: 0}
+      dynamicTargetName: 
+      highlightColor: {r: 0, g: 0, b: 0, a: 0}
+      onGoalStart:
+        m_PersistentCalls:
+          m_Calls: []
+      onGoalComplete:
+        m_PersistentCalls:
+          m_Calls: []
+      marineBuddySplines: []
+      dynamicSplineNames:
+      - Spline_1
+      splineDuration: 4
+    - goalType: 5
+      audioInstructionText: This is the Audio toggle button! Use this to mute or
+        unmute the audio.
+      targetToHighlight: {fileID: 0}
+      dynamicTargetName: 
+      highlightColor: {r: 0, g: 0.8078432, b: 0.8196079, a: 1}
+      onGoalStart:
+        m_PersistentCalls:
+          m_Calls: []
+      onGoalComplete:
+        m_PersistentCalls:
+          m_Calls: []
+      marineBuddySplines: []
+      dynamicSplineNames: []
+      splineDuration: 0
+    - goalType: 6
+      audioInstructionText: This is the Audio toggle button! Use this to mute or
+        unmute the audio.
+      targetToHighlight: {fileID: 0}
+      dynamicTargetName: 
+      highlightColor: {r: 0, g: 0.8078432, b: 0.8196079, a: 1}
+      onGoalStart:
+        m_PersistentCalls:
+          m_Calls: []
+      onGoalComplete:
+        m_PersistentCalls:
+          m_Calls: []
+      marineBuddySplines: []
+      dynamicSplineNames: []
+      splineDuration: 0
+    - goalType: 7
+      audioInstructionText: This is the depth Slider. Use it to adjust your depth
+        in the Aquatic portal.
+      targetToHighlight: {fileID: 0}
+      dynamicTargetName: 
+      highlightColor: {r: 0, g: 0.8078432, b: 0.8196079, a: 1}
+      onGoalStart:
+        m_PersistentCalls:
+          m_Calls: []
+      onGoalComplete:
+        m_PersistentCalls:
+          m_Calls: []
+      marineBuddySplines: []
+      dynamicSplineNames: []
+      splineDuration: 0
 --- !u!4 &1198802432
 Transform:
   m_ObjectHideFlags: 0
