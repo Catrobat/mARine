@@ -13,7 +13,6 @@ public class APIManager : MonoBehaviour
     [SerializeField] private GameObject spinner;
     [SerializeField] private Button sendButton;
     [SerializeField] private ARAppVoiceManager voiceManager;
-    private bool fasle;
 
     public void SendPrompt()
     {

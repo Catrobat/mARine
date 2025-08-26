@@ -9,14 +9,16 @@ public class WaterPlaneSpawner : MonoBehaviour
     [SerializeField] private GameObject waterPlanePrefab;
     [SerializeField] private InputActionAsset inputActions;
     [SerializeField] private Transform fixedWorldContainer;
-    [SerializeField] private FreeExpGoalManager goalManager;    
+    [SerializeField] private FreeExpGoalManager goalManager;
     [SerializeField] private CrossPlatformTTS globalTTS;
+    [SerializeField] private LayerLoadManager layerLoadManager;
 
     private ARRaycastManager _arRaycastManager;
     private ARPlaneManager _arPlaneManager;
     private ARAnchorManager _arAnchorManager;
 
     private WaterPlaneMover _moverInstance;
+    private GameObject _spawnedPortal;
 
     private InputAction _touchAction;
     private bool _planePlaced;
@@ -88,17 +90,35 @@ public class WaterPlaneSpawner : MonoBehaviour
                     }
 
                     // Instantiate water plane as child of anchor
-                    GameObject spawnedPlane = Instantiate(waterPlanePrefab, hitPose.position, hitPose.rotation, fixedWorldContainer);
-                    _moverInstance = spawnedPlane.GetComponent<WaterPlaneMover>();
+                    _spawnedPortal = Instantiate(waterPlanePrefab, hitPose.position, hitPose.rotation, fixedWorldContainer);
+                    _moverInstance = _spawnedPortal.GetComponent<WaterPlaneMover>();
 
-                    // Dynamically find the MarineBuddy in the instantiated prefab
-                    MarineBuddy buddy = spawnedPlane.GetComponentInChildren<MarineBuddy>(true);
+
+                    // FIND THE SPAWN POINT AND LOAD THE LAYER
+                    Transform layerSpawnPoint = _spawnedPortal.transform.Find("LayerSpawnPoint");
+                    if (layerSpawnPoint != null && layerLoadManager != null)
+                    {
+                        string firstLayerName = "Layer1_ROOT";
+
+                        // Pass the LayerSpawnPoint's transform to load the layer correctly
+                        LayerLoadManager.Instance.LoadLayer(firstLayerName, layerSpawnPoint);
+
+                        // goalManager.StartFreeExploreTutorial(firstLayerName);
+                    }
+                    else
+                    {
+                        Debug.LogError("Could not find 'LayerSpawnPoint' child or LayerLoadManager is not assigned.");
+                    }
+
+
+                    /* // Dynamically find the MarineBuddy in the instantiated prefab
+                    MarineBuddy buddy = _spawnedPortal.GetComponentInChildren<MarineBuddy>(true);
                     if (buddy != null)
                     {
                         goalManager.SetMarineBuddy(buddy);
                         buddy.SetTTSManager(globalTTS);
                     }
-                    
+                     */
                     _planePlaced = true;
 
                     // Disable plane detection and hide existing planes
