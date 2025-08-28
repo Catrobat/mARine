@@ -1,0 +1,9 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.9f1
+CRC: 1460025218
+HashAppended: 0
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: ardebugmenu
+      Dependencies: {}
