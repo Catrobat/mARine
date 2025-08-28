@@ -22,4 +22,9 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene("StartScreenScene");
     }
+
+    public void LoadHumanInteractionScene()
+    {
+        SceneManager.LoadScene("Pose Landmark Detection");
+    }
 }
