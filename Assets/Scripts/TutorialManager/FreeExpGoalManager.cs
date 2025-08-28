@@ -328,10 +328,21 @@ public class FreeExpGoalManager : MonoBehaviour
         // currentGoalIndex++;  // rethink
         currentStep.onGoalStart?.Invoke();
 
-        if (currentStep.goalType == FreeExplorerGoals.IdentifyMultipleCreatures && identifyCreatureMiniGame != null)
+        if (currentStep.goalType == FreeExplorerGoals.IdentifyMultipleCreatures)
         {
+            GameObject currentLayer = LayerLoadManager.Instance.GetCurrentLayerInstance();
+            if (currentLayer != null)
+            {
+                IdentifyCreatureMiniGame minigame = currentLayer.GetComponentInChildren<IdentifyCreatureMiniGame>();
+                if (minigame != null) 
+                {
+                    minigame.StartMiniGame();
+                    return;
+                }
+            }
+
             Debug.Log("[FreeExpGoalManager] Starting IdentifyCreatureMiniGame...");
-            identifyCreatureMiniGame.StartMiniGame();
+            // identifyCreatureMiniGame.StartMiniGame();
 
             return;
         }

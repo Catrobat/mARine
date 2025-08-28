@@ -64,6 +64,8 @@ EditorBuildSettings:
       type: 2}
     com.unity.addressableassets: {fileID: 11400000, guid: a4f042e01f68e744887e4a47650a09f8,
       type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: bab0a5d3e764f724491fb1dabc38ff5b,
+      type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: c199e683398494f32b4cde18e73ab731,
       type: 2}
     com.unity.xr.magicleap.magic_leap_settings: {fileID: 11400000, guid: 0b53a025a635a4393ba0b49822242280,

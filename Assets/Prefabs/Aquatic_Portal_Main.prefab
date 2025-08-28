@@ -2499,7 +2499,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6082343187949587283
 Transform:
   m_ObjectHideFlags: 0
@@ -2522,7 +2522,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5111690585127659045}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 973a22a5316c90143a7d80a2228c37f8, type: 3}
   m_Name: 
@@ -2540,13 +2540,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5111690585127659045}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d918c3b697b01d44f898c47ded802d01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  marineBuddy: {fileID: 1269337385071212277}
-  miniQuizController: {fileID: 1470039215329667761}
   steps:
   - introText: "Watch this cephalopod carefully \u2014 can you identify its species?"
     targetCreature: {fileID: 0}
@@ -2808,6 +2806,58 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &7937352565311657884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 952838361849017103}
+  - component: {fileID: 1509014040086048939}
+  m_Layer: 0
+  m_Name: MiniQuizController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &952838361849017103
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7937352565311657884}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5148825405377527989}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1509014040086048939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7937352565311657884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00e7b30a6df0bd74bad42f48298c8de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quizPanel: {fileID: 872513870763407710}
+  questionText: {fileID: 8392614979438755787}
+  optionButtons:
+  - {fileID: 3620578767478413370}
+  - {fileID: 1365808026366306176}
+  - {fileID: 6749450277875327520}
+  - {fileID: 6396433349658620921}
+  feedbackText: {fileID: 1932585167526985523}
 --- !u!1 &7943807913348438407
 GameObject:
   m_ObjectHideFlags: 0
@@ -3957,6 +4007,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5583506314554010153}
+    - targetCorrespondingSourceObject: {fileID: 2376344531438396265, guid: 43922be0e9f63f14bb693707989db457,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 952838361849017103}
     - targetCorrespondingSourceObject: {fileID: 2376344531438396265, guid: 43922be0e9f63f14bb693707989db457,
         type: 3}
       insertIndex: -1

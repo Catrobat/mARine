@@ -7,6 +7,7 @@ public class LayerLoadManager : MonoBehaviour
     public static LayerLoadManager Instance;
 
     private GameObject currentLayerInstance;
+    public GameObject GetCurrentLayerInstance() => currentLayerInstance;
     private string currentlyLoadingLayerName; // Variable to remember the layer name
 
     // Singleton Pattern

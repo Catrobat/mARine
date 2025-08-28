@@ -6,6 +6,8 @@ using System.Collections;
 
 public class MiniQuizController : MonoBehaviour
 {
+    public static MiniQuizController Instance;
+
     [Header("UI Elements")]
     public GameObject quizPanel;
     public TextMeshProUGUI questionText;
@@ -18,6 +20,19 @@ public class MiniQuizController : MonoBehaviour
     private readonly Color correctColor = new Color32(0x4C, 0xAF, 0x50, 0xFF);   // Green
     private readonly Color wrongColor = new Color32(0xF4, 0x43, 0x36, 0xFF);     // Red
     private readonly Color normalColor = new Color32(0xE0, 0xE0, 0xE0, 0xFF);    // Default gray
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+    }
 
     public void ShowQuestion(string question, string[] options, int correctIndex, Action onComplete)
     {

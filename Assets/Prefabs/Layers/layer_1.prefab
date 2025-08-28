@@ -13247,7 +13247,6 @@ GameObject:
   - component: {fileID: 8300873849192311298}
   - component: {fileID: 2163862897948137861}
   - component: {fileID: 820585386947846551}
-  - component: {fileID: 4470946072338113370}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -13357,9 +13356,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4470946072338113370}
-        m_TargetAssemblyTypeName: ButtonLayerLoader, Assembly-CSharp
-        m_MethodName: LoadLayerViaSingleton
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: LayerRequestButton, Assembly-CSharp
+        m_MethodName: RequestTargetLayer
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13369,19 +13368,6 @@ MonoBehaviour:
           m_StringArgument: layer_2
           m_BoolArgument: 1
         m_CallState: 2
---- !u!114 &4470946072338113370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4687986739495895858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41e02f9cb393b874583bc6dc7599f053, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arPortalParent: {fileID: 6153028890642613042}
 --- !u!1 &4711407418541938526
 GameObject:
   m_ObjectHideFlags: 0
@@ -20947,7 +20933,6 @@ GameObject:
   - component: {fileID: 5593071972251228248}
   - component: {fileID: 5385188862599665212}
   - component: {fileID: 702754396644144530}
-  - component: {fileID: 678775485387220958}
   m_Layer: 0
   m_Name: Canvas (1)
   m_TagString: Untagged
@@ -21038,26 +21023,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &678775485387220958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8378257308472853391}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00e7b30a6df0bd74bad42f48298c8de8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quizPanel: {fileID: 0}
-  questionText: {fileID: 0}
-  optionButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  feedbackText: {fileID: 0}
 --- !u!1 &8465647196520547825
 GameObject:
   m_ObjectHideFlags: 0

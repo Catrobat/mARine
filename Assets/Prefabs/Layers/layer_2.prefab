@@ -711,23 +711,8 @@ MonoBehaviour:
   ttsManager: {fileID: 0}
   autoStart: 1
   identifyCreatureMiniGame: {fileID: 994933961269980362}
-  tutorialSteps:
-  - goalType: 3
-    audioInstructionText: "\"Welcome to the Identify-the-Creature game! Watch the
-      creature, choose the right name, and test your ocean knowledge. Let\u2019s
-      dive in!"
-    targetToHighlight: {fileID: 0}
-    highlightColor: {r: 0, g: 1, b: 1, a: 0.67058825}
-    onGoalStart:
-      m_PersistentCalls:
-        m_Calls: []
-    onGoalComplete:
-      m_PersistentCalls:
-        m_Calls: []
-    marineBuddySplines:
-    - {fileID: 0}
-    splineDuration: 0
-  currentLayerName: 
+  prePortalSteps: []
+  layerTutorials: []
 --- !u!114 &994933961269980362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -740,8 +725,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d918c3b697b01d44f898c47ded802d01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  marineBuddy: {fileID: 4785285921059181875}
-  miniQuizController: {fileID: 6990753774181030176}
   steps:
   - introText: "Watch this cephalopod carefully \u2014 can you identify its species?"
     targetCreature: {fileID: 0}
@@ -1293,7 +1276,6 @@ GameObject:
   - component: {fileID: 8064767636749431199}
   - component: {fileID: 9053055133894985948}
   - component: {fileID: 5136603414199551322}
-  - component: {fileID: 6401512217693057902}
   m_Layer: 0
   m_Name: Canvas (1)
   m_TagString: Untagged
@@ -1384,26 +1366,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &6401512217693057902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 761983266439744093}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00e7b30a6df0bd74bad42f48298c8de8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quizPanel: {fileID: 0}
-  questionText: {fileID: 0}
-  optionButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  feedbackText: {fileID: 0}
 --- !u!1 &1023561763630857793
 GameObject:
   m_ObjectHideFlags: 0
@@ -9582,7 +9544,6 @@ GameObject:
   - component: {fileID: 220788381200973708}
   - component: {fileID: 5225052498718631869}
   - component: {fileID: 5468783720688490060}
-  - component: {fileID: 1509316993556455607}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -9692,7 +9653,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1509316993556455607}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ButtonLayerLoader, Assembly-CSharp
         m_MethodName: LoadLayerViaSingleton
         m_Mode: 5
@@ -9704,18 +9665,6 @@ MonoBehaviour:
           m_StringArgument: layer_1
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1509316993556455607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7713336523737402412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41e02f9cb393b874583bc6dc7599f053, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7723248024071762586
 GameObject:
   m_ObjectHideFlags: 0
@@ -10544,23 +10493,8 @@ MonoBehaviour:
   ttsManager: {fileID: 0}
   autoStart: 1
   identifyCreatureMiniGame: {fileID: 5934955422479203391}
-  tutorialSteps:
-  - goalType: 3
-    audioInstructionText: "\"Welcome to the Identify-the-Creature game! Watch the
-      creature, choose the right name, and test your ocean knowledge. Let\u2019s
-      dive in!"
-    targetToHighlight: {fileID: 0}
-    highlightColor: {r: 0, g: 1, b: 1, a: 0.67058825}
-    onGoalStart:
-      m_PersistentCalls:
-        m_Calls: []
-    onGoalComplete:
-      m_PersistentCalls:
-        m_Calls: []
-    marineBuddySplines:
-    - {fileID: 0}
-    splineDuration: 0
-  currentLayerName: 
+  prePortalSteps: []
+  layerTutorials: []
 --- !u!114 &5934955422479203391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10573,8 +10507,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d918c3b697b01d44f898c47ded802d01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  marineBuddy: {fileID: 4785285921059181875}
-  miniQuizController: {fileID: 6990753774181030176}
   steps:
   - introText: Observe this creature closely. Can you identify which species it is?
     targetCreature: {fileID: 4597899361044052374}
