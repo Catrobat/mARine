@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 public class IdentifyCreatureMiniGame: MonoBehaviour
 {
-    [Header("Core References")]
-    [SerializeField] private MarineBuddy marineBuddy;
-    [SerializeField] private MiniQuizController miniQuizController;
+    // These will be found at runtime
+    private MarineBuddy marineBuddy;
+    private MiniQuizController miniQuizController;
 
     [Header("Game Data")]
     public List<IdentifyCreatureStep> steps;
@@ -17,6 +17,10 @@ public class IdentifyCreatureMiniGame: MonoBehaviour
 
     public void StartMiniGame()
     {
+        // Find the singletons when the game starts
+        marineBuddy = MarineBuddy.Instance;
+        miniQuizController = MiniQuizController.Instance;
+
         if (steps == null || steps.Count == 0 || marineBuddy == null || miniQuizController == null)
         {
             Debug.LogError("[IdentifyCreatureStep] Misssing references or data.");
@@ -36,6 +40,8 @@ public class IdentifyCreatureMiniGame: MonoBehaviour
         {
             Debug.Log("[IdentifyCreatureMiniGame] Mini-game complete.");
             isRunning = false;
+            // Tell the main tutorial manager that we are finished
+            FreeExpGoalManager.Instance.CompleteCurrentGoal();
             return;
         }
 

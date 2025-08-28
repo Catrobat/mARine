@@ -2309,6 +2309,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578486023}
   m_CullTransparentMesh: 1
+--- !u!1 &618381314
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 618381316}
+  - component: {fileID: 618381315}
+  m_Layer: 0
+  m_Name: IdentifyCreatureMiniGame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &618381315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618381314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d918c3b697b01d44f898c47ded802d01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  steps:
+  - introText: 
+    targetCreature: {fileID: 0}
+    splinePath: []
+    splineDuration: 0
+    highlightColor: {r: 0, g: 0, b: 0, a: 0}
+    questionData:
+      questionText: 
+      options: []
+      correctAnswerIndex: 0
+--- !u!4 &618381316
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618381314}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20.70415, y: 0, z: 141.51062}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &619385640
 GameObject:
   m_ObjectHideFlags: 0
@@ -4801,7 +4855,7 @@ MonoBehaviour:
       - Spline
       splineDuration: 3
     - goalType: 4
-      audioInstructionText: Hola man!
+      audioInstructionText: This is the Aquatic Portal!
       targetToHighlight: {fileID: 0}
       dynamicTargetName: 
       highlightColor: {r: 0, g: 0, b: 0, a: 0}
@@ -4859,6 +4913,23 @@ MonoBehaviour:
           m_Calls: []
       marineBuddySplines: []
       dynamicSplineNames: []
+      splineDuration: 0
+  - layerName: Layer2_ROOT
+    steps:
+    - goalType: 3
+      audioInstructionText: Greeting! Welcome to the Aquatic creatures Mini-Game
+      targetToHighlight: {fileID: 0}
+      dynamicTargetName: 
+      highlightColor: {r: 0, g: 0, b: 0, a: 0}
+      onGoalStart:
+        m_PersistentCalls:
+          m_Calls: []
+      onGoalComplete:
+        m_PersistentCalls:
+          m_Calls: []
+      marineBuddySplines: []
+      dynamicSplineNames:
+      - 
       splineDuration: 0
 --- !u!4 &1198802432
 Transform:
@@ -8650,6 +8721,7 @@ SceneRoots:
   - {fileID: 1581537573}
   - {fileID: 1798453499}
   - {fileID: 1198802432}
+  - {fileID: 618381316}
   - {fileID: 515479812}
   - {fileID: 1294917391}
   - {fileID: 619385644}

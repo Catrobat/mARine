@@ -1,5 +1,110 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &559697660755224611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2097708718443192930}
+  - component: {fileID: 533810070451171807}
+  m_Layer: 0
+  m_Name: IdentifyCreatureMiniGame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2097708718443192930
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559697660755224611}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.67468, y: 2.67246, z: 0.49652}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1223645911894248180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &533810070451171807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559697660755224611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d918c3b697b01d44f898c47ded802d01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  steps:
+  - introText: 
+    targetCreature: {fileID: 4387536424024794047}
+    splinePath:
+    - {fileID: 2688462965221850621}
+    splineDuration: 3
+    highlightColor: {r: 0.4980392, g: 1, b: 0.8313726, a: 1}
+    questionData:
+      questionText: A squid's blue-colored blood is due to what copper-based respiratory
+        protein?
+      options:
+      - Hemoglobin
+      - Myoglobin
+      - Hemocyanin
+      - Chlorocruorin
+      correctAnswerIndex: 2
+  - introText: 
+    targetCreature: {fileID: 563299904887668760}
+    splinePath:
+    - {fileID: 1917968827307130858}
+    splineDuration: 3
+    highlightColor: {r: 0.4980392, g: 1, b: 0.8313726, a: 1}
+    questionData:
+      questionText: Cuttlefish achieve rapid, dynamic camouflage using which specialized,
+        pigment-containing skin cells?
+      options:
+      - Chromatophores
+      - Melanocytes
+      - Cnidocytes
+      - Photoreceptors
+      correctAnswerIndex: 0
+  - introText: 
+    targetCreature: {fileID: 1117535327433439981}
+    splinePath:
+    - {fileID: 1697713569523248118}
+    splineDuration: 3
+    highlightColor: {r: 0.4980392, g: 1, b: 0.8313726, a: 1}
+    questionData:
+      questionText: This deep-sea octopus is primarily identified by which unique
+        anatomical feature?
+      options:
+      - Venomous beak
+      - Cephalic fins for propulsion
+      - Bioluminescent ink
+      - A protective exoskeleton
+      correctAnswerIndex: 1
+  - introText: 
+    targetCreature: {fileID: 3596960861610948636}
+    splinePath:
+    - {fileID: 6498361617629407824}
+    splineDuration: 3
+    highlightColor: {r: 0.4980392, g: 1, b: 0.8313726, a: 1}
+    questionData:
+      questionText: 'The potent, paralytic neurotoxin found in the saliva of the
+        blue-ringed octopus is called:'
+      options:
+      - Hemotoxin
+      - Myotoxin
+      - Cytotoxin
+      - Tetrodotoxin (TTX)
+      correctAnswerIndex: 3
 --- !u!1 &2132007308025190962
 GameObject:
   m_ObjectHideFlags: 0
@@ -30,6 +135,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1703326802963819798}
+  - {fileID: 2097708718443192930}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &228747046617831977
@@ -40,6 +146,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1223645911894248180}
     m_Modifications:
+    - target: {fileID: 155235284279000693, guid: 633472bd8af631c4da474667d3cd6e86,
+        type: 3}
+      propertyPath: m_Name
+      value: IdentifyCreatureMiniGame
+      objectReference: {fileID: 0}
     - target: {fileID: 319630429482314734, guid: 633472bd8af631c4da474667d3cd6e86,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -120,6 +231,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2898217415326030516, guid: 633472bd8af631c4da474667d3cd6e86,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3882183870468246918, guid: 633472bd8af631c4da474667d3cd6e86,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -133,6 +249,11 @@ PrefabInstance:
     - target: {fileID: 3882183870468246918, guid: 633472bd8af631c4da474667d3cd6e86,
         type: 3}
       propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572111630974402790, guid: 633472bd8af631c4da474667d3cd6e86,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4779175945998423133, guid: 633472bd8af631c4da474667d3cd6e86,
@@ -210,6 +331,16 @@ PrefabInstance:
       propertyPath: m_Size
       value: 0.36472613
       objectReference: {fileID: 0}
+    - target: {fileID: 8159459392403627317, guid: 633472bd8af631c4da474667d3cd6e86,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416832023197023247, guid: 633472bd8af631c4da474667d3cd6e86,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8772747257900705368, guid: 633472bd8af631c4da474667d3cd6e86,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -237,7 +368,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1509316993556455607, guid: 633472bd8af631c4da474667d3cd6e86, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 155235284279000693, guid: 633472bd8af631c4da474667d3cd6e86, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7713336523737402412, guid: 633472bd8af631c4da474667d3cd6e86,
@@ -245,12 +377,84 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6631099001892831683}
   m_SourcePrefab: {fileID: 100100000, guid: 633472bd8af631c4da474667d3cd6e86, type: 3}
+--- !u!1 &563299904887668760 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 359604612803861041, guid: 633472bd8af631c4da474667d3cd6e86,
+    type: 3}
+  m_PrefabInstance: {fileID: 228747046617831977}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1117535327433439981 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 913918804748001476, guid: 633472bd8af631c4da474667d3cd6e86,
+    type: 3}
+  m_PrefabInstance: {fileID: 228747046617831977}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1697713569523248118 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1487262397199053279, guid: 633472bd8af631c4da474667d3cd6e86,
+    type: 3}
+  m_PrefabInstance: {fileID: 228747046617831977}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1703326802963819798 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1481616700290643775, guid: 633472bd8af631c4da474667d3cd6e86,
     type: 3}
   m_PrefabInstance: {fileID: 228747046617831977}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1917968827307130858 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1851351384725300675, guid: 633472bd8af631c4da474667d3cd6e86,
+    type: 3}
+  m_PrefabInstance: {fileID: 228747046617831977}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2688462965221850621 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2766330473574836180, guid: 633472bd8af631c4da474667d3cd6e86,
+    type: 3}
+  m_PrefabInstance: {fileID: 228747046617831977}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &3596960861610948636 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3658705079111705141, guid: 633472bd8af631c4da474667d3cd6e86,
+    type: 3}
+  m_PrefabInstance: {fileID: 228747046617831977}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4387536424024794047 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4597899361044052374, guid: 633472bd8af631c4da474667d3cd6e86,
+    type: 3}
+  m_PrefabInstance: {fileID: 228747046617831977}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6498361617629407824 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6413826585669283961, guid: 633472bd8af631c4da474667d3cd6e86,
+    type: 3}
+  m_PrefabInstance: {fileID: 228747046617831977}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7505225180641842693 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7713336523737402412, guid: 633472bd8af631c4da474667d3cd6e86,
