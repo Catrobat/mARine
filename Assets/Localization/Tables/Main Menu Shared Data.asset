@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Main Menu Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Main Menu
+  m_TableCollectionNameGuidString: 3b52d94298b90284e9e86f92f4bd82f5
+  m_Entries:
+  - m_Id: 148849573888
+    m_Key: AR Spawner
+    m_Metadata:
+      m_Items: []
+  - m_Id: 235059298304
+    m_Key: Ocean Explore
+    m_Metadata:
+      m_Items: []
+  - m_Id: 297785114624
+    m_Key: Custom Create
+    m_Metadata:
+      m_Items: []
+  - m_Id: 461367062577152
+    m_Key: Human Interaction
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 7445958235143536861
+  references:
+    version: 2
+    RefIds:
+    - rid: 7445958235143536861
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1756288249190

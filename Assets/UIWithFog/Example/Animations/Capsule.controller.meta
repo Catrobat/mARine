@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 185aee2a84156404fa54a06515c5278d
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 195773
+  packageName: UI Shader With Fog
+  packageVersion: 1.0
+  assetPath: Assets/UIWithFog/Example/Animations/Capsule.controller
+  uploadId: 438878
