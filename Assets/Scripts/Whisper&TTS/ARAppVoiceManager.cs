@@ -126,6 +126,14 @@ public class ARAppVoiceManager : MonoBehaviour
         recordButton.interactable = true;
     }
 
+    /// <summary>
+    /// Public entry point for starting voice recording from external scripts.
+    /// </summary>
+    public void StartRecording()
+    {
+        OnRecordButtonPressed();
+    }
+
     public string GetLastTranscription()
     {
         return lastTranscription;

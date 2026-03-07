@@ -28,8 +28,14 @@ public class APIManager : MonoBehaviour
 
     public void Record()
     {
-
-        StartCoroutine("hi!");
+        if (voiceManager != null)
+        {
+            voiceManager.StartRecording();
+        }
+        else
+        {
+            Debug.LogWarning("APIManager: Cannot record — voiceManager is not assigned.");
+        }
     }
 
     private IEnumerator SendDataToGas()
@@ -58,14 +64,16 @@ public class APIManager : MonoBehaviour
         }
         else
         {
-            response = "There was an error";
+            response = $"Request failed: {www.error}";
+            Debug.LogError($"APIManager: {response}");
         }
-        
+
         Debug.Log(response);
         responseText.text = response;
 
-        // Speak the new AI response
-        if (ttsManager != null && !string.IsNullOrEmpty(response))
+        // Speak the AI response only on success
+        if (www.result == UnityWebRequest.Result.Success
+            && ttsManager != null && !string.IsNullOrEmpty(response))
         {
             ttsManager.Speak(response);
         }
@@ -73,5 +81,9 @@ public class APIManager : MonoBehaviour
         // Hide spinner
         if (spinner != null)
             spinner.SetActive(false);
+
+        // Re-enable send button
+        if (sendButton != null)
+            sendButton.interactable = true;
     }
 }
