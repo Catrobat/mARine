@@ -1,64 +1,60 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 
 public class SharkFollower : MonoBehaviour
 {
+    [Header("Movement Specs")]
     public Transform octopusTransform;
-    public float followSpeed = 2f;
-    public float followDistance = 3f;
-    private bool _avoidInk = false;
+    public float followSpeed = 5f;
+    public float turnSpeed = 2f;
+    public float stoppingDistance = 1.5f;
 
-    private void Update()
+    private float _sqrStoppingDistance;
+    private bool _isBlinded = false; // Tracks if we are currently hit by octopus ink
+
+    void Start()
     {
-        if (_avoidInk) return;
+        _sqrStoppingDistance = stoppingDistance * stoppingDistance;
+    }
 
-        Vector3 direction = (octopusTransform.position - transform.position).normalized;
-        float distance = Vector3.Distance(octopusTransform.position, transform.position);
-
-        if (distance > followDistance)
+    // OctopusInk.cs calls this. Default 3s duration ensures it works even if 
+    // the calling script doesn't provide a specific time.
+    public void OnInkHit(float duration = 3f)
+    {
+        if (!_isBlinded)
         {
-            transform.position += direction * (followSpeed * Time.deltaTime);
-            transform.rotation = Quaternion.Slerp(transform.rotation,
-                Quaternion.LookRotation(direction),
-                Time.deltaTime * 3f);
+            StartCoroutine(ApplyInkEffect(duration));
         }
     }
 
-    public void OnInkHit()
+    private IEnumerator ApplyInkEffect(float duration)
     {
-        _avoidInk = true;
-        StartCoroutine(BackOff());
+        Debug.Log("Shark: Blinded by ink. Pausing pursuit.");
+        _isBlinded = true;
+        yield return new WaitForSeconds(duration);
+        _isBlinded = false;
+        Debug.Log("Shark: Vision restored.");
     }
 
-    private IEnumerator BackOff()
+    void Update()
     {
-        Vector3 retreatDir = -transform.forward;
-        float retreatTime = 2f;
-        float t = 0;
+        // If the shark is blinded or has no target, We freeze movement logic here.
+        if (_isBlinded || octopusTransform == null) return;
 
-        while (t < retreatTime)
+        Vector3 direction = octopusTransform.position - transform.position;
+
+        // Performance check: Only move if we aren't already 'touching' the target.
+        if (direction.sqrMagnitude < _sqrStoppingDistance) return;
+
+        // Smoothly rotate the Shark towards the octopus.
+        if (direction != Vector3.zero)
         {
-            transform.position += retreatDir * (followSpeed * Time.deltaTime);
-            t += Time.deltaTime;
-            yield return null;
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
         }
 
-        _avoidInk = false;
-    }
-
-    public void ExitScene()
-    {
-        // Shark swims upward or off-screen
-        StartCoroutine(SwimAway());
-    }
-
-    private IEnumerator SwimAway()
-    {
-        Vector3 exitDir = Vector3.up + transform.forward;
-        while (true)
-        {
-            transform.position += exitDir.normalized * (followSpeed * 1.5f * Time.deltaTime);
-            yield return null;
-        }
+        // Add a procedural 'wiggle' to the speed to make it look like its swimming. 
+        float swimEffect = Mathf.Sin(Time.time * 5f) * 0.2f;
+        transform.position += transform.forward * (followSpeed + swimEffect) * Time.deltaTime;
     }
 }
