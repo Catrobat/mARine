@@ -1,9 +1,12 @@
 ManifestFileVersion: 0
-UnityVersion: 6000.1.9f1
-CRC: 1460025218
+UnityVersion: 6000.3.14f1
+CRC: 2848811058
 HashAppended: 0
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: ardebugmenu
+      Dependencies: {}
+    Info_1:
+      Name: unifiedraytracing
       Dependencies: {}

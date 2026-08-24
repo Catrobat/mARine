@@ -65,6 +65,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Layer2_ROOT
       objectReference: {fileID: 0}
+    - target: {fileID: 849589932229408737, guid: 01c0ed6529a9f1f429f3c68599dd3810,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 929237524148344339, guid: 01c0ed6529a9f1f429f3c68599dd3810,
         type: 3}
       propertyPath: m_Name

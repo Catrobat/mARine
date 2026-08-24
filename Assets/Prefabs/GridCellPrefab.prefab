@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4866912709319809202}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 0.01, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -122,4 +122,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOccupied: 0
-  environmentRoot: {fileID: 0}
+  layerIndex: 0
+  settings: {fileID: 11400000, guid: 8d1d720e31886584aae4140dbe84928e, type: 2}
+  cellRenderer: {fileID: 4957604362030484185}

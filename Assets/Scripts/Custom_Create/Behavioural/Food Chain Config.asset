@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6594c049dc897bc429fdf4172fa7bf58, type: 3}
+  m_Name: Food Chain Config
+  m_EditorClassIdentifier: Assembly-CSharp::FoodChainConfig
+  species:
+  - prefabName: octo_yelo
+    foodChainTier: 3
+    displayName: octo_yelo
+    additionalBehaviours: []
+    preferredLayerIndex: 0
+    wanderYRange: 0.5
+    wanderSpeed: 0.4
+    settleSpeed: 0.3
+    settleTime: 45
+    wanderDirectionChangeInterval: 3
+    maxHunger: 100
+    hungerDepletionRate: 2
+    huntHungerThreshold: 40
+    slowHungerThreshold: 50.2
+    starvingSpeedMultiplier: 0.5
+    diesWhenStarving: 0
+  - prefabName: sharky
+    foodChainTier: 4
+    displayName: sharky
+    additionalBehaviours: []
+    preferredLayerIndex: 0
+    wanderYRange: 5
+    wanderSpeed: 0.5
+    settleSpeed: 0.5
+    settleTime: 45
+    wanderDirectionChangeInterval: 3
+    maxHunger: 100
+    hungerDepletionRate: 2
+    huntHungerThreshold: 21
+    slowHungerThreshold: 30
+    starvingSpeedMultiplier: 0.5
+    diesWhenStarving: 1
+  huntTierDifference: 1
+  fleeTierDifference: 1
+  huntDetectionRadius: 1.5
+  fleeDetectionRadius: 3
+  consumeDistance: 0.5
+  huntSuccessChance: 0.9
+  escapeChance: 0.5
+  defenseTriggerChance: 0.8
+  predatorStunDuration: 1.5
+  predatorSlowDuration: 3
+  predatorSlowMultiplier: 0.3
+  autoAssignHuntBehaviour: 1
+  autoAssignFleeBehaviour: 1

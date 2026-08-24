@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468a46d0ae32c3544b7d98094e6448a9, type: 3}
   m_Name: AddressableAssetSettings
   m_EditorClassIdentifier: 
-  m_DefaultGroup: 2605c0e985cf2814a9d2ccc7216b1218
+  m_DefaultGroup: df42352d8a4e6424d909efd7b9eb0664
   m_currentHash:
     serializedVersion: 2
-    Hash: ae1feec3bf25346a0a5c6de7cfa9ca90
+    Hash: 13d6b5e8265c7accd19bf0c725440580
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
@@ -33,6 +33,7 @@ MonoBehaviour:
   m_UniqueBundleIds: 0
   m_EnableJsonCatalog: 0
   m_NonRecursiveBuilding: 1
+  m_AllowNestedBundleFolders: 0
   m_CCDEnabled: 0
   m_maxConcurrentWebRequests: 3
   m_UseUWRForLocalBundles: 0
@@ -41,6 +42,7 @@ MonoBehaviour:
   m_BundleRedirectLimit: -1
   m_SharedBundleSettings: 0
   m_SharedBundleSettingsCustomGroupIndex: 0
+  m_simulatedLoadDelay: 0.1
   m_ContiguousBundles: 1
   m_StripUnityVersionFromBundleBuild: 0
   m_DisableVisibleSubAssetRepresentations: 0
@@ -60,10 +62,10 @@ MonoBehaviour:
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
   - {fileID: 11400000, guid: 1e4438c75fad1564da2ce1f30cafe9c6, type: 2}
-  - {fileID: 11400000, guid: 1093631d6321de34f91d4dd543d19ff3, type: 2}
   - {fileID: 11400000, guid: 9a8bde487c4d51449a9f794d796d9d65, type: 2}
   - {fileID: 11400000, guid: f193a03643f1db14f8adbdf038f429cb, type: 2}
   - {fileID: 11400000, guid: ed5a7fbb3e389494a9a2a090a69e9555, type: 2}
+  - {fileID: 11400000, guid: b43cfdade97fb40438a3416a1957136a, type: 2}
   m_BuildSettings:
     m_LogResourceManagerExceptions: 1
     m_BundleBuildPath: Temp/com.unity.addressables/AssetBundles
@@ -80,7 +82,7 @@ MonoBehaviour:
       - m_Id: bb38f16079b93a64f99c22aaa38131b7
         m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
       - m_Id: bc85c1fc666167841a5aa21553e9c069
-        m_Value: <undefined>
+        m_Value: https://github.com/joshi-p/marine-content/raw/refs/heads/main/Android
       - m_Id: eeac42f44a239444f84b31ef34412221
         m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
     m_ProfileEntryNames:
@@ -106,6 +108,7 @@ MonoBehaviour:
     - Locale
     - Locale-de
     - Locale-en
+    - EssentialPackage
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 934d3e3cd793c404f9dee086528ca024, type: 2}

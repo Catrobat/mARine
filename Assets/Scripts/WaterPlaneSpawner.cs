@@ -99,6 +99,9 @@ public class WaterPlaneSpawner : MonoBehaviour
                     if (layerSpawnPoint != null && layerLoadManager != null)
                     {
                         string firstLayerName = "Layer1_ROOT";
+                        LayerLoadDebugger.Log("Portal spawned");
+                        LayerLoadDebugger.Log("Spawn point found");
+                        LayerLoadDebugger.TestInstantiate(firstLayerName, layerSpawnPoint);
 
                         // Pass the LayerSpawnPoint's transform to load the layer correctly
                         LayerLoadManager.Instance.LoadLayer(firstLayerName, layerSpawnPoint);

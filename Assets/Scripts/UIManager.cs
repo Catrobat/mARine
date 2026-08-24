@@ -1,21 +1,17 @@
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    public void LoadARScene()
+    public async void LoadARScene()
     {
-        SceneManager.LoadScene("AR_Spawn");
+        await SceneLoaderBackend.LoadAddressableSceneAsync("AISpawnerScene");
     }
 
-    public void LoadFreeExploreEcosystem()
+    public async void LoadFreeExploreEcosystem()
     {
-        SceneManager.LoadScene("FreeExplore");
-    }
-
-    public void LoadModuleWise()
-    {
-        SceneManager.LoadScene("ModuleWise");
+        await SceneLoaderBackend.LoadAddressableSceneAsync("FreeExploreConfig");
     }
 
     public void LoadCustomCreateScene()
@@ -25,6 +21,6 @@ public class UIManager : MonoBehaviour
 
     public void LoadHumanInteractionScene()
     {
-        SceneManager.LoadScene("Pose Landmark Detection");
+        SceneManager.LoadScene("FaceARScene");
     }
 }

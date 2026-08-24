@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "26017803680",
+    "project_id": "aiotsmarine",
+    "storage_bucket": "aiotsmarine.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:26017803680:android:25c938f077e727c38388c5",
+        "android_client_info": {
+          "package_name": "com.Arishna.MarineBiologyAR"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "26017803680-0af1chj55becapk2ucnits0e814tjph8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.Arishna.MarineBiologyAR",
+            "certificate_hash": "037723df41178fffb75969d331d316d5e5a76afc"
+          }
+        },
+        {
+          "client_id": "26017803680-2fpo3om07o30jog06jmliufnpvvb9icu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJOShNvyKtlWPAVKNWctt5sklLZ3MhNsI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "26017803680-2fpo3om07o30jog06jmliufnpvvb9icu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -19,32 +19,67 @@ public class LayerLoadManager : MonoBehaviour
 
     public void LoadLayer(string addressableName, Transform parentTranform)
     {
-        // Handle the dynamically loaded layer
+        Debug.Log($"[LayerLoadManager] LoadLayer called");
+        Debug.Log($"[LayerLoadManager] Address = {addressableName}");
+        Debug.Log($"[LayerLoadManager] Parent = {(parentTranform != null ? parentTranform.name : "NULL")}");
+
         if (currentLayerInstance != null)
         {
+            Debug.Log("[LayerLoadManager] Releasing previous layer");
+
             Addressables.ReleaseInstance(currentLayerInstance);
             Destroy(currentLayerInstance);
         }
 
         currentlyLoadingLayerName = addressableName;
 
-        Addressables.InstantiateAsync(addressableName, parentTranform).Completed += OnLayerLoaded;
+        Debug.Log("[LayerLoadManager] Calling Addressables.InstantiateAsync");
+
+        Addressables.InstantiateAsync(addressableName, parentTranform)
+            .Completed += OnLayerLoaded;
     }
 
     private void OnLayerLoaded(AsyncOperationHandle<GameObject> obj)
     {
-        if (obj.Status == AsyncOperationStatus.Succeeded) {
+        Debug.Log("[LayerLoadManager] OnLayerLoaded() called");
+        Debug.Log($"[LayerLoadManager] Status = {obj.Status}");
+
+        if (obj.OperationException != null)
+        {
+            Debug.LogError("[LayerLoadManager] Exception:\n" + obj.OperationException);
+        }
+
+        if (obj.Status == AsyncOperationStatus.Succeeded)
+        {
             currentLayerInstance = obj.Result;
+
+            Debug.Log($"[LayerLoadManager] Loaded Object = {currentLayerInstance.name}");
+            Debug.Log($"[LayerLoadManager] World Position = {currentLayerInstance.transform.position}");
+            Debug.Log($"[LayerLoadManager] Local Position = {currentLayerInstance.transform.localPosition}");
+            Debug.Log($"[LayerLoadManager] Child Count = {currentLayerInstance.transform.childCount}");
+            Debug.Log($"[LayerLoadManager] Active Self = {currentLayerInstance.activeSelf}");
+            Debug.Log($"[LayerLoadManager] Active InHierarchy = {currentLayerInstance.activeInHierarchy}");
+
+            Renderer[] renderers = currentLayerInstance.GetComponentsInChildren<Renderer>(true);
+            Debug.Log($"[LayerLoadManager] Renderer Count = {renderers.Length}");
+
+            foreach (Renderer renderer in renderers)
+            {
+                Debug.Log($"[LayerLoadManager] Renderer: {renderer.name}, Enabled = {renderer.enabled}");
+            }
 
             // Reset the local transform to fix placement
             currentLayerInstance.transform.localPosition = Vector3.zero;
             currentLayerInstance.transform.localRotation = Quaternion.identity;
             currentLayerInstance.transform.localScale = Vector3.one;
 
+            Debug.Log($"[LayerLoadManager] After Reset World Position = {currentLayerInstance.transform.position}");
+            Debug.Log($"[LayerLoadManager] After Reset Local Position = {currentLayerInstance.transform.localPosition}");
 
             // Now that the layer is confirmed to be loaded, start its tutorial.
             if (FreeExpGoalManager.Instance != null)
             {
+                Debug.Log("[LayerLoadManager] Starting Free Explore Tutorial");
                 FreeExpGoalManager.Instance.StartFreeExploreTutorial(currentlyLoadingLayerName);
             }
 
@@ -76,5 +111,9 @@ public class LayerLoadManager : MonoBehaviour
             //if (MarineBuddy.Instance != null) MarineBuddy.Instance.OnNewLayerLoaded();
             if (FreeExpGoalManager.Instance != null) FreeExpGoalManager.Instance.OnNewLayerLoaded(); */
         }
-    } 
+        else
+        {
+            Debug.LogError("[LayerLoadManager] Failed to load Addressable layer.");
+        }
+    }
 }

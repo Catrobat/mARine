@@ -12,10 +12,7 @@ public class ActorSelector : MonoBehaviour
     public ActorOption[] actors; // List of available actor prefabs
     private GameObject selectedActor;
 
-    /// <summary>
-    /// Call this function from UI Buttons to select an actor by index.
-    /// </summary>
-    /// <param name="index">Index of the actor in the array</param>
+  
     public void SelectActor(int index)
     {
         if (index >= 0 && index < actors.Length)
@@ -29,17 +26,13 @@ public class ActorSelector : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Get the currently selected actor prefab.
-    /// </summary>
+   
     public GameObject GetSelectedActor()
     {
         return selectedActor;
     }
 
-    /// <summary>
-    /// Clear the current actor selection.
-    /// </summary>
+  
     public void ClearSelection()
     {
         selectedActor = null;

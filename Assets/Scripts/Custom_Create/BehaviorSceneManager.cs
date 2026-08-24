@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
@@ -9,35 +10,50 @@ public class BehaviorSceneManager : MonoBehaviour
     public Transform addedScriptsPanel;
     public GameObject scriptblockbutton;
 
-    private int selectedActorIndex;
+    private string selectedActorUniqueID;
+    private int selectedActorLayerIndex;
     private string selectedEnvKey;
     private EnvironmentData environmentData;
+    private PlacedActorData selectedActor;
 
     void Start()
     {
-        selectedActorIndex = PlayerPrefs.GetInt("SelectedActorIndex", -1);
+        selectedActorUniqueID = PlayerPrefs.GetString("SelectedActorUniqueID", "");
+        selectedActorLayerIndex = PlayerPrefs.GetInt("SelectedActorLayerIndex", 0);
         selectedEnvKey = PlayerPrefs.GetString("SelectedEnvironmentKey", "");
 
-        if (selectedActorIndex < 0 || string.IsNullOrEmpty(selectedEnvKey))
+        if (string.IsNullOrEmpty(selectedActorUniqueID) ||
+            string.IsNullOrEmpty(selectedEnvKey))
         {
-            Debug.LogError("Missing actor index or environment key.");
+            Debug.LogError("Missing actor unique ID or environment key.");
             return;
         }
 
         string json = PlayerPrefs.GetString(selectedEnvKey, "");
         environmentData = JsonUtility.FromJson<EnvironmentData>(json);
 
-        if (environmentData == null || selectedActorIndex >= environmentData.placedActors.Count)
+        if (environmentData == null)
         {
-            Debug.LogError("Invalid environment data or actor index.");
+            Debug.LogError("Invalid environment data.");
             return;
         }
 
-        PlacedActorData actor = environmentData.placedActors[selectedActorIndex];
-        mainPlayerToggle.isOn = actor.isMainPlayer;
+        environmentData.MigrateFromLegacy();
+
+        selectedActor = FindActorByUniqueID(selectedActorUniqueID);
+
+        if (selectedActor == null)
+        {
+            Debug.LogError($"Actor '{selectedActorUniqueID}' not found in any layer.");
+            return;
+        }
+
+        Debug.Log($"Loaded actor: {selectedActor.prefabName} " +
+                  $"on Layer {selectedActor.layerIndex}");
+
+        mainPlayerToggle.isOn = selectedActor.isMainPlayer;
         mainPlayerToggle.onValueChanged.AddListener(OnMainPlayerToggleChanged);
 
-        // Handle script just added
         string pendingScript = PlayerPrefs.GetString("PendingScriptToAdd", "");
         if (!string.IsNullOrEmpty(pendingScript))
         {
@@ -46,20 +62,19 @@ public class BehaviorSceneManager : MonoBehaviour
             if (pendingScript == "Food Consumption")
             {
                 string pendingFoodTargetID = PlayerPrefs.GetString("PendingFoodTargetID", "");
-
                 if (!string.IsNullOrEmpty(pendingFoodTargetID))
                 {
-                    var target = environmentData.placedActors.Find(a => a.uniqueID == pendingFoodTargetID);
+                    PlacedActorData target = FindActorByUniqueID(pendingFoodTargetID);
                     if (target != null)
                     {
-                        actor.foodTargetUniqueID = pendingFoodTargetID;
-
-                        Debug.Log($"Food target assigned: {target.prefabName} (ID: {pendingFoodTargetID})");
+                        selectedActor.foodTargetUniqueID = pendingFoodTargetID;
+                        Debug.Log($"Food target: {target.prefabName} " +
+                                  $"(ID: {pendingFoodTargetID})");
                         SaveEnvironment();
                     }
                     else
                     {
-                        Debug.LogWarning($"No actor found with uniqueID: {pendingFoodTargetID}");
+                        Debug.LogWarning($"Food target not found: {pendingFoodTargetID}");
                     }
 
                     PlayerPrefs.DeleteKey("PendingFoodTargetID");
@@ -72,21 +87,35 @@ public class BehaviorSceneManager : MonoBehaviour
         RefreshScriptDisplay();
     }
 
+    PlacedActorData FindActorByUniqueID(string uniqueID)
+    {
+        if (environmentData == null) return null;
+
+        int total = environmentData.layerCount > 0 ? environmentData.layerCount : 5;
+        for (int i = 0; i < total; i++)
+        {
+            var found = environmentData.GetLayerActors(i)
+                                       .Find(a => a.uniqueID == uniqueID);
+            if (found != null) return found;
+        }
+
+        return null;
+    }
+
     void OnMainPlayerToggleChanged(bool isOn)
     {
-        for (int i = 0; i < environmentData.placedActors.Count; i++)
+        // Clear main player across all layers
+        int total = environmentData.layerCount > 0 ? environmentData.layerCount : 5;
+        for (int i = 0; i < total; i++)
         {
-            environmentData.placedActors[i].isMainPlayer = false;
+            foreach (var actor in environmentData.GetLayerActors(i))
+                actor.isMainPlayer = false;
         }
 
         if (isOn)
         {
-            environmentData.placedActors[selectedActorIndex].isMainPlayer = true;
-            Debug.Log($"Actor '{environmentData.placedActors[selectedActorIndex].prefabName}' set as Main Player.");
-        }
-        else
-        {
-            Debug.Log("No main player selected.");
+            selectedActor.isMainPlayer = true;
+            Debug.Log($"Main player: {selectedActor.prefabName}");
         }
 
         SaveEnvironment();
@@ -94,15 +123,13 @@ public class BehaviorSceneManager : MonoBehaviour
 
     void AddScriptToActor(string scriptName)
     {
-        PlacedActorData actor = environmentData.placedActors[selectedActorIndex];
+        if (selectedActor.addedScripts == null)
+            selectedActor.addedScripts = new List<string>();
 
-        if (actor.addedScripts == null)
-            actor.addedScripts = new List<string>();
-
-        if (!actor.addedScripts.Contains(scriptName))
+        if (!selectedActor.addedScripts.Contains(scriptName))
         {
-            actor.addedScripts.Add(scriptName);
-            Debug.Log($"Script '{scriptName}' added to actor: {actor.prefabName} (ID: {actor.uniqueID})");
+            selectedActor.addedScripts.Add(scriptName);
+            Debug.Log($"Script '{scriptName}' added to {selectedActor.prefabName}");
             SaveEnvironment();
         }
     }
@@ -110,32 +137,35 @@ public class BehaviorSceneManager : MonoBehaviour
     void RefreshScriptDisplay()
     {
         foreach (Transform child in addedScriptsPanel)
-        {
             Destroy(child.gameObject);
-        }
 
-        PlacedActorData actor = environmentData.placedActors[selectedActorIndex];
+        if (selectedActor.addedScripts == null) return;
 
-        if (actor.addedScripts == null) return;
-
-        foreach (string scriptName in actor.addedScripts)
+        foreach (string scriptName in selectedActor.addedScripts)
         {
             GameObject scriptVisual = Instantiate(scriptblockbutton, addedScriptsPanel);
-            Debug.Log($"Instantiated visual for script: {scriptName}");
-
             Text txt = scriptVisual.GetComponentInChildren<Text>();
             if (txt != null)
                 txt.text = scriptName;
             else
-                Debug.LogError("Text component not found in scriptblockbutton prefab!");
+                Debug.LogError("Text not found in scriptblockbutton prefab!");
         }
     }
 
     void SaveEnvironment()
     {
         string updatedJson = JsonUtility.ToJson(environmentData);
+
+        // Save to PlayerPrefs (fast in-memory access)
         PlayerPrefs.SetString(selectedEnvKey, updatedJson);
         PlayerPrefs.Save();
+
+        // Also save to file so PlacedActorListManager doesn't overwrite
+        // PlayerPrefs with stale data from disk on next load
+        ModuleSaveManager.SaveModule(selectedEnvKey, updatedJson);
+
+        Debug.Log($"[BehaviorScene] Saved environment '{selectedEnvKey}' " +
+                  $"with {environmentData.GetLayerActors(0).Count + environmentData.GetLayerActors(1).Count + environmentData.GetLayerActors(2).Count} actors.");
     }
 
     public void OnAddScriptsButtonPressed()

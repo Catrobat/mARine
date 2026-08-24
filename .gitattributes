@@ -1,3 +1,6 @@
 *.fbx filter=lfs diff=lfs merge=lfs -text
 Assets/Models/octoreal.blend filter=lfs diff=lfs merge=lfs -text
 Packages/com.ptc.vuforia.engine-11.2.4.tgz filter=lfs diff=lfs merge=lfs -text
+*.bundle filter=lfs diff=lfs merge=lfs -text
+*.so filter=lfs diff=lfs merge=lfs -text
+ServerData/**/*.bundle filter=lfs diff=lfs merge=lfs -text

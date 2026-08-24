@@ -6,57 +6,50 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/Useful_for_derivatives/SampleScene.unity
-    guid: 4755b35b590504809a7525fd2109c2e2
+    path: Assets/Scenes/AuthScene.unity
+    guid: 316d1c0b2bb76064d9384d95f709d670
   - enabled: 1
     path: Assets/Scenes/StartScene.unity
     guid: 7f0dc33bc140c1c449cf25b75ec5952c
+  - enabled: 0
+    path: Assets/Scenes/StartScreenScene.unity
+    guid: b993e70402c219049ad283c99c933b4e
+  - enabled: 0
+    path: Assets/Scenes/QRScannerScene.unity
+    guid: 856c4906e67765a4ba4c8a27113eef6d
+  - enabled: 0
+    path: Assets/Scenes/CreateProjectScene.unity
+    guid: 2abadc2cb29b2b14796c26cfe58e1fcd
+  - enabled: 0
+    path: Assets/Scenes/TestScene2.unity
+    guid: e188e9d556541b54c8a69a158bc9523c
+  - enabled: 0
+    path: Assets/Scenes/PlacedActorListScene.unity
+    guid: a7387ea049f67924c9f54edaaaaf062a
+  - enabled: 0
+    path: Assets/Scenes/BehaviorScene.unity
+    guid: 874e489f07464e64ca8b28228f99af8f
+  - enabled: 0
+    path: Assets/Scenes/AddScriptsScene.unity
+    guid: e197e9afbd776cf4caefe5e925d89772
+  - enabled: 0
+    path: Assets/Scenes/ARPlacementScene.unity
+    guid: ca99e8a77ea4fd946901f777f83c50f6
+  - enabled: 0
+    path: Assets/Scenes/FaceARScene.unity
+    guid: b74f81a770ca95a46b621b1a90041565
   - enabled: 1
-    path: Assets/Scenes/AR_Spawn.unity
-    guid: 0812d52c3728c2246a74833dc2c50c37
+    path: Assets/Scenes/MarineDemo.unity
+    guid: cf6fa7ba3bd801e45abc47d69fbc8708
   - enabled: 1
     path: Assets/Scenes/FreeExplore.unity
     guid: 59aced77654ae1842a90698dade0b763
   - enabled: 1
-    path: Assets/Scenes/CustomCreate.unity
-    guid: 8eb5333f975a49a47ae9eb896c1c9e2a
+    path: Assets/Scenes/FreeExploreConfig.unity
+    guid: f4d0c983e70f2984a83d98ce29640cdc
   - enabled: 1
-    path: Assets/Scenes/ModuleWise.unity
-    guid: bce86c1fad171da42ae83fdb80fb4b67
-  - enabled: 1
-    path: Assets/Scenes/StartScreenScene.unity
-    guid: b993e70402c219049ad283c99c933b4e
-  - enabled: 1
-    path: Assets/Scenes/QRScannerScene.unity
-    guid: 856c4906e67765a4ba4c8a27113eef6d
-  - enabled: 1
-    path: Assets/Scenes/CreateProjectScene.unity
-    guid: 2abadc2cb29b2b14796c26cfe58e1fcd
-  - enabled: 1
-    path: Assets/Scenes/TestScene2.unity
-    guid: e188e9d556541b54c8a69a158bc9523c
-  - enabled: 1
-    path: Assets/Scenes/PlacedActorListScene.unity
-    guid: a7387ea049f67924c9f54edaaaaf062a
-  - enabled: 1
-    path: Assets/Scenes/BehaviorScene.unity
-    guid: 874e489f07464e64ca8b28228f99af8f
-  - enabled: 1
-    path: Assets/Scenes/AddScriptsScene.unity
-    guid: e197e9afbd776cf4caefe5e925d89772
-  - enabled: 1
-    path: Assets/Scenes/ARPlacementScene.unity
-    guid: ca99e8a77ea4fd946901f777f83c50f6
-  - enabled: 0
-    path: Assets/Samples/Google Cardboard XR Plugin for Unity/1.29.0/Hello Cardboard/Scenes/VrMode.unity
-    guid: a45c80a4da1fa4625a30ce04b599e90d
-  - enabled: 0
-    path: Assets/Scenes/TestScene_1.unity
-    guid: fd6465204ce0293479a7190d811db2f3
-  - enabled: 1
-    path: Assets/MediaPipeUnity/Samples/Scenes/Pose Landmark Detection/Pose Landmark
-      Detection.unity
-    guid: 927caf745c48e562eaa2cda915b091b4
+    path: Assets/Scenes/freeExploreEndless.unity
+    guid: b3da273bf3b54f049a25d042b4324da2
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 6ee72d15cf39dd748a13eac57397b9af,
       type: 2}

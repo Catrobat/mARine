@@ -112,7 +112,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 67e8182b22040494197c3018a60b48a0,
         type: 3}
       propertyPath: m_Name
-      value: new_model 1
+      value: nautilus_prefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -143,7 +143,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 67e8182b22040494197c3018a60b48a0,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2527698553040158492}
+      addedObject: {fileID: 6331506704250240116}
   m_SourcePrefab: {fileID: 100100000, guid: 67e8182b22040494197c3018a60b48a0, type: 3}
 --- !u!1 &3946059540106289001 stripped
 GameObject:
@@ -180,10 +180,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3946059540106289001}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -272,6 +272,8 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
+  m_AutoFindParentInteractableInHierarchy: 0
+  m_ParentInteractableObject: {fileID: 0}
   m_AttachTransform: {fileID: 4630018700465608175}
   m_SecondaryAttachTransform: {fileID: 0}
   m_UseDynamicAttach: 1
@@ -281,6 +283,7 @@ MonoBehaviour:
   m_ReinitializeDynamicAttachEverySingleGrab: 0
   m_AttachEaseInTime: 0.15
   m_MovementType: 2
+  m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -322,6 +325,10 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
+  m_LimitLinearVelocity: 0
+  m_LimitAngularVelocity: 0
+  m_MaxLinearVelocityDelta: 10
+  m_MaxAngularVelocityDelta: 20
 --- !u!114 &4679522098828759906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,8 +352,8 @@ MonoBehaviour:
   m_Elasticity: 0.15
   m_EnableElasticBreakLimit: 1
   m_ElasticBreakLimit: 0.5
---- !u!64 &2527698553040158492
-MeshCollider:
+--- !u!65 &6331506704250240116
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -363,10 +370,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 1352553863953798561, guid: 67e8182b22040494197c3018a60b48a0, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 3.6573374, y: 2.6314042, z: 1.202848}
+  m_Center: {x: -0.13454914, y: 1.2361659, z: 0.0005122088}
 --- !u!4 &4434049546978575827 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 67e8182b22040494197c3018a60b48a0,

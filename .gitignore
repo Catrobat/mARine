@@ -85,3 +85,18 @@ start_nvim_client.bat
 
 # Temporary Burst-Compiler
 MarineBiology_AR_BurstDebugInformation_DoNotShip*
+
+# ── Project-specific ─────────────────────────────────────────────────────────
+.DS_Store
+**/.DS_Store
+
+# Offline asset pipeline: source .glb, Blender scripts, review renders (~20 MB).
+/CoralPack/
+
+# The paper: PDFs, LaTeX, Overleaf zips (~12 MB). Not app code.
+/Docs/
+
+# Generated preview renders. The scripts that make them are tracked.
+/tools/preview/
+/tools/venv/
+/tools/__pycache__/

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Kelp
+  m_Shader: {fileID: 4800000, guid: da5e1379262e467c9a3b6e5721a1b688, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _Translucency: 1
+    - _SwayAmplitude: 0.25
+    - _SwaySpeed: 0.85
+    - _SwayWavelength: 9
+    - _FlutterStrength: 0.4
+    m_Colors:
+    - _RootColor: {r: 0.02, g: 0.1, b: 0.05, a: 1}
+    - _TipColor: {r: 0.15, g: 0.55, b: 0.2, a: 1}
+  m_BuildTextureStacks: []
